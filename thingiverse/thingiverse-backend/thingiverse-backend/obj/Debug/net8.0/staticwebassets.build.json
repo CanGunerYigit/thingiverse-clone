@@ -1,0 +1,39 @@
+{
+  "Version": 1,
+  "Hash": "hjHQWhBZLDCQIy87B28+R+TepZErE1W1pc4KVeSq4ZU=",
+  "Source": "thingiverse-backend",
+  "BasePath": "_content/thingiverse-backend",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "thingiverse-backend\\wwwroot",
+      "Source": "thingiverse-backend",
+      "ContentRoot": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\thingiverse-backend\\wwwroot\\",
+      "BasePath": "_content/thingiverse-backend",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\thingiverse-backend\\wwwroot\\uploads\\323c741b-4ae7-4b0b-9c2e-c76a077a42aa.jpg",
+      "SourceId": "thingiverse-backend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\thingiverse-backend\\wwwroot\\",
+      "BasePath": "_content/thingiverse-backend",
+      "RelativePath": "uploads/323c741b-4ae7-4b0b-9c2e-c76a077a42aa.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\323c741b-4ae7-4b0b-9c2e-c76a077a42aa.jpg"
+    }
+  ]
+}

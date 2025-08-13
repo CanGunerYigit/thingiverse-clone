@@ -1,0 +1,25 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\thingiverse-backend\\wwwroot\\uploads\\323c741b-4ae7-4b0b-9c2e-c76a077a42aa.jpg",
+      "PackagePath": "staticwebassets\\uploads\\323c741b-4ae7-4b0b-9c2e-c76a077a42aa.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.thingiverse-backend.props",
+      "PackagePath": "build\\thingiverse-backend.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.thingiverse-backend.props",
+      "PackagePath": "buildMultiTargeting\\thingiverse-backend.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.thingiverse-backend.props",
+      "PackagePath": "buildTransitive\\thingiverse-backend.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.thingiverse-backend.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

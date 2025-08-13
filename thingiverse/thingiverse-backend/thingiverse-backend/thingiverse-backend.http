@@ -1,0 +1,6 @@
+@thingiverse_backend_HostAddress = http://localhost:5102
+
+GET {{thingiverse_backend_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

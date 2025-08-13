@@ -1,0 +1,12 @@
+C:\Users\TR\Desktop\thingiverse\thingiverse-backend\Thingiverse.Domain\bin\Debug\net8.0\Thingiverse.Domain.deps.json
+C:\Users\TR\Desktop\thingiverse\thingiverse-backend\Thingiverse.Domain\bin\Debug\net8.0\Thingiverse.Domain.dll
+C:\Users\TR\Desktop\thingiverse\thingiverse-backend\Thingiverse.Domain\bin\Debug\net8.0\Thingiverse.Domain.pdb
+C:\Users\TR\Desktop\thingiverse\thingiverse-backend\Thingiverse.Domain\obj\Debug\net8.0\Thingiverse.Domain.csproj.AssemblyReference.cache
+C:\Users\TR\Desktop\thingiverse\thingiverse-backend\Thingiverse.Domain\obj\Debug\net8.0\Thingiverse.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\TR\Desktop\thingiverse\thingiverse-backend\Thingiverse.Domain\obj\Debug\net8.0\Thingiverse.Domain.AssemblyInfoInputs.cache
+C:\Users\TR\Desktop\thingiverse\thingiverse-backend\Thingiverse.Domain\obj\Debug\net8.0\Thingiverse.Domain.AssemblyInfo.cs
+C:\Users\TR\Desktop\thingiverse\thingiverse-backend\Thingiverse.Domain\obj\Debug\net8.0\Thingiverse.Domain.csproj.CoreCompileInputs.cache
+C:\Users\TR\Desktop\thingiverse\thingiverse-backend\Thingiverse.Domain\obj\Debug\net8.0\Thingiverse.Domain.dll
+C:\Users\TR\Desktop\thingiverse\thingiverse-backend\Thingiverse.Domain\obj\Debug\net8.0\refint\Thingiverse.Domain.dll
+C:\Users\TR\Desktop\thingiverse\thingiverse-backend\Thingiverse.Domain\obj\Debug\net8.0\Thingiverse.Domain.pdb
+C:\Users\TR\Desktop\thingiverse\thingiverse-backend\Thingiverse.Domain\obj\Debug\net8.0\ref\Thingiverse.Domain.dll

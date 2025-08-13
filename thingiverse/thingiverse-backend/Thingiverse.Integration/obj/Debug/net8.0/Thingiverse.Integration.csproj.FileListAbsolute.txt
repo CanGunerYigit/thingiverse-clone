@@ -1,0 +1,17 @@
+C:\Users\TR\Desktop\thingiverse\thingiverse-backend\Thingiverse.Integration\bin\Debug\net8.0\Thingiverse.Integration.deps.json
+C:\Users\TR\Desktop\thingiverse\thingiverse-backend\Thingiverse.Integration\bin\Debug\net8.0\Thingiverse.Integration.dll
+C:\Users\TR\Desktop\thingiverse\thingiverse-backend\Thingiverse.Integration\bin\Debug\net8.0\Thingiverse.Integration.pdb
+C:\Users\TR\Desktop\thingiverse\thingiverse-backend\Thingiverse.Integration\bin\Debug\net8.0\Thingiverse.Application.dll
+C:\Users\TR\Desktop\thingiverse\thingiverse-backend\Thingiverse.Integration\bin\Debug\net8.0\Thingiverse.Domain.dll
+C:\Users\TR\Desktop\thingiverse\thingiverse-backend\Thingiverse.Integration\bin\Debug\net8.0\Thingiverse.Application.pdb
+C:\Users\TR\Desktop\thingiverse\thingiverse-backend\Thingiverse.Integration\bin\Debug\net8.0\Thingiverse.Domain.pdb
+C:\Users\TR\Desktop\thingiverse\thingiverse-backend\Thingiverse.Integration\obj\Debug\net8.0\Thingiverse.Integration.csproj.AssemblyReference.cache
+C:\Users\TR\Desktop\thingiverse\thingiverse-backend\Thingiverse.Integration\obj\Debug\net8.0\Thingiverse.Integration.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\TR\Desktop\thingiverse\thingiverse-backend\Thingiverse.Integration\obj\Debug\net8.0\Thingiverse.Integration.AssemblyInfoInputs.cache
+C:\Users\TR\Desktop\thingiverse\thingiverse-backend\Thingiverse.Integration\obj\Debug\net8.0\Thingiverse.Integration.AssemblyInfo.cs
+C:\Users\TR\Desktop\thingiverse\thingiverse-backend\Thingiverse.Integration\obj\Debug\net8.0\Thingiverse.Integration.csproj.CoreCompileInputs.cache
+C:\Users\TR\Desktop\thingiverse\thingiverse-backend\Thingiverse.Integration\obj\Debug\net8.0\Thingive.BADC4995.Up2Date
+C:\Users\TR\Desktop\thingiverse\thingiverse-backend\Thingiverse.Integration\obj\Debug\net8.0\Thingiverse.Integration.dll
+C:\Users\TR\Desktop\thingiverse\thingiverse-backend\Thingiverse.Integration\obj\Debug\net8.0\refint\Thingiverse.Integration.dll
+C:\Users\TR\Desktop\thingiverse\thingiverse-backend\Thingiverse.Integration\obj\Debug\net8.0\Thingiverse.Integration.pdb
+C:\Users\TR\Desktop\thingiverse\thingiverse-backend\Thingiverse.Integration\obj\Debug\net8.0\ref\Thingiverse.Integration.dll

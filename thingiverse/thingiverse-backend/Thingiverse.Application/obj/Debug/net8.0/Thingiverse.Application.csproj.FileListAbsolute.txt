@@ -1,0 +1,15 @@
+C:\Users\TR\Desktop\thingiverse\thingiverse-backend\Thingiverse.Application\bin\Debug\net8.0\Thingiverse.Application.deps.json
+C:\Users\TR\Desktop\thingiverse\thingiverse-backend\Thingiverse.Application\bin\Debug\net8.0\Thingiverse.Application.dll
+C:\Users\TR\Desktop\thingiverse\thingiverse-backend\Thingiverse.Application\bin\Debug\net8.0\Thingiverse.Application.pdb
+C:\Users\TR\Desktop\thingiverse\thingiverse-backend\Thingiverse.Application\bin\Debug\net8.0\Thingiverse.Domain.dll
+C:\Users\TR\Desktop\thingiverse\thingiverse-backend\Thingiverse.Application\bin\Debug\net8.0\Thingiverse.Domain.pdb
+C:\Users\TR\Desktop\thingiverse\thingiverse-backend\Thingiverse.Application\obj\Debug\net8.0\Thingiverse.Application.csproj.AssemblyReference.cache
+C:\Users\TR\Desktop\thingiverse\thingiverse-backend\Thingiverse.Application\obj\Debug\net8.0\Thingiverse.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\TR\Desktop\thingiverse\thingiverse-backend\Thingiverse.Application\obj\Debug\net8.0\Thingiverse.Application.AssemblyInfoInputs.cache
+C:\Users\TR\Desktop\thingiverse\thingiverse-backend\Thingiverse.Application\obj\Debug\net8.0\Thingiverse.Application.AssemblyInfo.cs
+C:\Users\TR\Desktop\thingiverse\thingiverse-backend\Thingiverse.Application\obj\Debug\net8.0\Thingiverse.Application.csproj.CoreCompileInputs.cache
+C:\Users\TR\Desktop\thingiverse\thingiverse-backend\Thingiverse.Application\obj\Debug\net8.0\Thingive.F23602B8.Up2Date
+C:\Users\TR\Desktop\thingiverse\thingiverse-backend\Thingiverse.Application\obj\Debug\net8.0\Thingiverse.Application.dll
+C:\Users\TR\Desktop\thingiverse\thingiverse-backend\Thingiverse.Application\obj\Debug\net8.0\refint\Thingiverse.Application.dll
+C:\Users\TR\Desktop\thingiverse\thingiverse-backend\Thingiverse.Application\obj\Debug\net8.0\Thingiverse.Application.pdb
+C:\Users\TR\Desktop\thingiverse\thingiverse-backend\Thingiverse.Application\obj\Debug\net8.0\ref\Thingiverse.Application.dll
