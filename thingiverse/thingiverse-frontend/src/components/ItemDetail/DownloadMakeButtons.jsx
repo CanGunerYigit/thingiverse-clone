@@ -1,27 +1,51 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { saveAs } from "file-saver";
 
 export default function DownloadMakeButtons({ token, item }) {
-  const handleDownload = async () => {
-    try {
-      const response = await fetch(item.thumbnail);
-      const blob = await response.blob();
-      const url = window.URL.createObjectURL(blob);
+  const [loading, setLoading] = useState(false);
 
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = item.name || "thumbnail.jpg";
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      window.URL.revokeObjectURL(url);
-    } catch (error) {
-      console.error("İndirme hatası:", error);
+  const handleDownload = async () => {
+    setLoading(true);
+    try {
+      const res = await fetch("https://localhost:7267/api/Download/zip", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          ...(token ? { Authorization: `Bearer ${token}` } : {}),
+        },
+        body: JSON.stringify({ thingId: item.id }), // backend'in beklediği item id
+      });
+
+      if (!res.ok) {
+        const text = await res.text();
+        console.error("Zip oluşturma hatası:", text);
+        alert(`İndirme hatası: ${text}`);
+        setLoading(false);
+        return;
+      }
+
+      // Dosya adı header
+      const contentDisposition = res.headers.get("Content-Disposition");
+      let fileName = `${item.name || "thing"}_${item.id}.zip`;
+      if (contentDisposition) {
+        const match = contentDisposition.match(/filename="?(.+)"?/);
+        if (match && match[1]) fileName = match[1];
+      }
+
+      const blob = await res.blob();
+      saveAs(blob, fileName);
+    } catch (e) {
+      console.error("İndirme hatası:", e);
+      alert("İndirme sırasında bir hata oluştu.");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <div className="flex items-center space-x-3 mb-6">
+      {/* Make Butonu */}
       <Link
         to={token ? `/make-item/${item.id}` : "#"}
         className={`px-4 py-2 rounded-lg text-white ${
@@ -34,11 +58,15 @@ export default function DownloadMakeButtons({ token, item }) {
         Make
       </Link>
 
+      {/* Download Butonu */}
       <button
         onClick={handleDownload}
-        className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+        className={`px-4 py-2 rounded-lg text-white ${
+          loading ? "bg-gray-400 cursor-not-allowed" : "bg-blue-600 hover:bg-blue-700"
+        }`}
+        disabled={loading}
       >
-        Download
+        {loading ? "İndiriliyor..." : "Download"}
       </button>
     </div>
   );

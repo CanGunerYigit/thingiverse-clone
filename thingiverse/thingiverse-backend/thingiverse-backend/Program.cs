@@ -7,6 +7,7 @@ using Microsoft.OpenApi.Models;
 using System.Security.Claims;
 using System.Text;
 using System.Text.Json.Serialization;
+using Thingiverse.Application.Abstractions.Interfaces;
 using Thingiverse.Application.Contracts.Repository;
 using Thingiverse.Application.Interfaces;
 using Thingiverse.Application.Services;
@@ -19,9 +20,12 @@ using thingiverse_backend.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// --- Configuration ---
+var configuration = builder.Configuration;
+
 // --- DbContext ---
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
 // --- Identity ---
 builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
@@ -45,17 +49,16 @@ builder.Services.AddAuthentication(options =>
     options.TokenValidationParameters = new TokenValidationParameters
     {
         ValidateIssuer = true,
-        ValidIssuer = builder.Configuration["JWT:Issuer"],
+        ValidIssuer = configuration["JWT:Issuer"],
         ValidateAudience = true,
-        // Test için hem JWT:Audience hem de localhost portunu esnek kabul et
         ValidAudiences = new[]
         {
-            builder.Configuration["JWT:Audience"],
-            "https://localhost:7267"
+            configuration["JWT:Audience"],
+            "http://localhost:5173"
         },
         ValidateIssuerSigningKey = true,
         IssuerSigningKey = new SymmetricSecurityKey(
-            Encoding.UTF8.GetBytes(builder.Configuration["JWT:SigningKey"])
+            Encoding.UTF8.GetBytes(configuration["JWT:SigningKey"])
         ),
         NameClaimType = ClaimTypes.Name,
         ValidateLifetime = true,
@@ -63,23 +66,36 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
-// --- CORS ---
+// --- CORS --- Güncellenmiþ versiyon
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowLocalhost5173", policy =>
-    {
-        policy.WithOrigins("http://localhost:5173")
-              .AllowAnyHeader()
-              .AllowAnyMethod()
-              .AllowCredentials();
-    });
+    options.AddPolicy("AllowReactApp",
+        policy => policy
+            .WithOrigins(
+                "http://localhost:5173",
+                "https://localhost:5173") // HTTPS ekledik
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            .AllowCredentials()
+            .WithExposedHeaders("Content-Disposition")); // Dosya indirme için gerekli
 });
 
-// --- HttpClient & Services ---
-builder.Services.AddHttpClient();
-builder.Services.AddHttpClient<ThingiverseService>();
-builder.Services.AddScoped<ThingiverseService>();
+// --- HttpClient & Services --- Güncellenmiþ versiyon
+builder.Services.AddHttpClient("Thingiverse", client =>
+{
+    client.BaseAddress = new Uri("https://api.thingiverse.com/");
+    client.DefaultRequestHeaders.Add("Accept", "application/json");
+});
 
+builder.Services.AddScoped<ThingiverseService>();
+builder.Services.AddScoped<IDownloadService, DownloadService>(provider =>
+{
+    var httpClientFactory = provider.GetRequiredService<IHttpClientFactory>();
+    var client = httpClientFactory.CreateClient("Thingiverse");
+    return new DownloadService(client);
+});
+
+// Diðer servisler
 builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<ILikeRepository, LikeRepository>();
 builder.Services.AddScoped<ILikeService, LikeService>();
@@ -140,11 +156,19 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseCors("AllowLocalhost5173");
+
+// CORS middleware auth/authorization'dan önce
+app.UseCors("AllowReactApp");
+
 app.UseRouting();
 
 // --- Static Files ---
-var uploadPath = @"C:\Users\TR\Desktop\thingiverse\thingiverse-backend\thingiverse-backend\upload";
+var uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "upload");
+if (!Directory.Exists(uploadPath))
+{
+    Directory.CreateDirectory(uploadPath);
+}
+
 app.UseStaticFiles(new StaticFileOptions
 {
     FileProvider = new PhysicalFileProvider(uploadPath),
@@ -152,7 +176,7 @@ app.UseStaticFiles(new StaticFileOptions
 });
 
 // --- Authentication & Authorization ---
-app.UseAuthentication();  //  Bu authorization’dan önce olmalý
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
