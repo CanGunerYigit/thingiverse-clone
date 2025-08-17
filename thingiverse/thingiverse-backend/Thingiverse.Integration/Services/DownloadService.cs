@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Thingiverse.Application.Abstractions.Interfaces;
 using Thingiverse.Application.Contracts.DTO;
 
-namespace Thingiverse.Application.Services
+namespace Thingiverse.Integration.Services
 {
     public class DownloadService : IDownloadService
     {

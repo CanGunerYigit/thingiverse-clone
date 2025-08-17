@@ -19,7 +19,8 @@ namespace Thingiverse.Infrastructure.Repositories
                 {
                     u.Id,
                     u.UserName,
-                    u.Email
+                    u.Email,
+                     u.ProfileImageUrl
                 })
                 .FirstOrDefaultAsync<object>();
         }
@@ -54,7 +55,9 @@ namespace Thingiverse.Infrastructure.Repositories
 
             if (!string.IsNullOrWhiteSpace(query))
             {
-                usersQuery = usersQuery.Where(u => u.UserName.Contains(query));
+                var lowerQuery = query.ToLower();
+
+                usersQuery = usersQuery.Where(u => u.UserName.ToLower().Contains(lowerQuery));
             }
 
             return await usersQuery

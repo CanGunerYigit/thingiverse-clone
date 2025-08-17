@@ -17,6 +17,7 @@ using Thingiverse.Infrastructure.Repositories;
 using thingiverse_backend.Interfaces;
 using thingiverse_backend.Migrations;
 using thingiverse_backend.Services;
+using Thingiverse.Integration.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,7 +26,9 @@ var configuration = builder.Configuration;
 
 // --- DbContext ---
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"),
+        b => b.MigrationsAssembly("Thingiverse.Infrastructure")));
+
 
 // --- Identity ---
 builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
@@ -161,7 +164,7 @@ app.UseHttpsRedirection();
 app.UseCors("AllowReactApp");
 
 app.UseRouting();
-
+app.UseStaticFiles();
 // --- Static Files ---
 var uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "upload");
 if (!Directory.Exists(uploadPath))

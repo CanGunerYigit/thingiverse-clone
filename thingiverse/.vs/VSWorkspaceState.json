@@ -1,11 +1,7 @@
 {
   "ExpandedNodes": [
     "",
-    "\\thingiverse-backend",
-    "\\thingiverse-backend\\thingiverse-backend",
-    "\\thingiverse-backend\\Thingiverse.Application",
-    "\\thingiverse-backend\\Thingiverse.Domain",
-    "\\thingiverse-backend\\Thingiverse.Infrastructure"
+    "\\thingiverse-backend"
   ],
   "SelectedNode": "\\thingiverse-backend\\thingiverse-backend.sln",
   "PreviewInSolutionExplorer": false

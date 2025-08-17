@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using System.Net.Http.Headers;
 using Thingiverse.Application.Contracts.Repository;
-namespace Thingiverse.Application.Services
+namespace Thingiverse.Integration.Services
 {
 public class ThingiverseService
 {

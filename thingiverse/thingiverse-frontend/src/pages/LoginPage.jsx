@@ -24,18 +24,34 @@ export default function LoginPage() {
         body: JSON.stringify(form),
       });
 
-      const data = await res.json();
+      const text = await res.text();
+      console.log("Raw login response:", text);
 
       if (!res.ok) {
+        let data;
+        try {
+          data = JSON.parse(text);
+        } catch {
+          data = {};
+        }
         setError(data.message || "Giriş başarısız.");
         setLoading(false);
         return;
       }
 
+      const data = JSON.parse(text);
+      console.log("Parsed login data:", data);
+
+      // Token ve userId'yi localStorage'a kaydet
       localStorage.setItem("token", data.token);
+      // Login response yapısına göre userId alıyoruz
+      localStorage.setItem("userId", data.user?.id || data.id);
       localStorage.setItem("user", JSON.stringify(data));
+
+      // Login sonrası ana sayfaya yönlendir
       window.location.href = "/";
-    } catch {
+    } catch (err) {
+      console.error(err);
       setError("Sunucuya bağlanırken bir hata oluştu.");
     } finally {
       setLoading(false);

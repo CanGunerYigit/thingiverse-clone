@@ -2,7 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Thingiverse.Infrastructure.Persistence.Identity;
-using Thingiverse.Application.Services;
+using Thingiverse.Integration.Services;
+
 namespace thingiverse_backend.Controllers
 {
     [Route("api/[controller]")]

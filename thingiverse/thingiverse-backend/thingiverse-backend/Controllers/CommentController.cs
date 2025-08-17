@@ -37,11 +37,8 @@ namespace thingiverse_backend.Controllers
         public async Task<IActionResult> GetCommentsByUser(string userId)
         {
             var comments = await _commentRepository.GetCommentsByUserAsync(userId);
+            return Ok(comments ?? new List<object>());
 
-            if (comments == null || comments.Count == 0)
-                return NotFound("Kullanıcının hiç yorumu yok.");
-
-            return Ok(comments);
         }
 
         [HttpGet("item/{itemId}")]

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -18,9 +18,12 @@ import MakeItem from "./pages/MakeItemPage";
 import MakeDetail from "./pages/MakeDetailPage";
 import MainPage from "./pages/MainPage";
 
+
 function LayoutWithNavbar() {
   const location = useLocation();
   const hideNavbarRoutes = ["/signup", "/login"];
+  const [username, setUsername] = useState(null);
+
 
   const shouldShowNavbar = !hideNavbarRoutes.includes(location.pathname);
 
@@ -28,7 +31,7 @@ function LayoutWithNavbar() {
     <>
       {shouldShowNavbar && (
         <div style={{ backgroundColor: "#2b52fe" }}>
-          <Navbar />
+          <Navbar username={username} setUsername={setUsername} />
         </div>
       )}
 

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Xml.Linq;
 using Thingiverse.Application.Interfaces;
 using Thingiverse.Domain.Models;
 
@@ -40,9 +41,6 @@ namespace thingiverse_backend.Controllers
         {
             var likes = await _likeService.GetLikesByUserAsync(userId);
 
-            if (!likes.Any())
-                return NotFound();
-
             var result = likes.Select(l => new
             {
                 l.Id,
@@ -52,10 +50,12 @@ namespace thingiverse_backend.Controllers
                     l.Item.Name,
                     l.Item.Thumbnail
                 }
-            });
+            }).ToList();
 
+            // Boş liste de result tipine uygun
             return Ok(result);
         }
+
 
         [HttpGet("userlikes")]
         [Authorize]

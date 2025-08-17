@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Thingiverse.Infrastructure.Persistence.Identity;
+
 #nullable disable
 
 namespace thingiverse_backend.Migrations
@@ -154,7 +155,7 @@ namespace thingiverse_backend.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("thingiverse_backend.Models.AppUser", b =>
+            modelBuilder.Entity("Thingiverse.Domain.Models.AppUser", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -196,6 +197,9 @@ namespace thingiverse_backend.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
 
+                    b.Property<string>("ProfileImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
@@ -219,7 +223,7 @@ namespace thingiverse_backend.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
-            modelBuilder.Entity("thingiverse_backend.Models.Comment", b =>
+            modelBuilder.Entity("Thingiverse.Domain.Models.Comment", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -253,7 +257,7 @@ namespace thingiverse_backend.Migrations
                     b.ToTable("Comments");
                 });
 
-            modelBuilder.Entity("thingiverse_backend.Models.Item", b =>
+            modelBuilder.Entity("Thingiverse.Domain.Models.Item", b =>
                 {
                     b.Property<int>("Id")
                         .HasColumnType("int");
@@ -299,7 +303,7 @@ namespace thingiverse_backend.Migrations
                     b.ToTable("Items");
                 });
 
-            modelBuilder.Entity("thingiverse_backend.Models.ItemImage", b =>
+            modelBuilder.Entity("Thingiverse.Domain.Models.ItemImage", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -332,7 +336,7 @@ namespace thingiverse_backend.Migrations
                     b.ToTable("ItemImages");
                 });
 
-            modelBuilder.Entity("thingiverse_backend.Models.ItemLike", b =>
+            modelBuilder.Entity("Thingiverse.Domain.Models.ItemLike", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -356,7 +360,7 @@ namespace thingiverse_backend.Migrations
                     b.ToTable("ItemLikes");
                 });
 
-            modelBuilder.Entity("thingiverse_backend.Models.Make", b =>
+            modelBuilder.Entity("Thingiverse.Domain.Models.Make", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -403,7 +407,7 @@ namespace thingiverse_backend.Migrations
                     b.ToTable("Makes");
                 });
 
-            modelBuilder.Entity("thingiverse_backend.Models.Thing", b =>
+            modelBuilder.Entity("Thingiverse.Domain.Models.Thing", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -439,7 +443,7 @@ namespace thingiverse_backend.Migrations
                     b.ToTable("Things");
                 });
 
-            modelBuilder.Entity("thingiverse_backend.Models.ThingImage", b =>
+            modelBuilder.Entity("Thingiverse.Domain.Models.ThingImage", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -472,7 +476,7 @@ namespace thingiverse_backend.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("thingiverse_backend.Models.AppUser", null)
+                    b.HasOne("Thingiverse.Domain.Models.AppUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -481,7 +485,7 @@ namespace thingiverse_backend.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("thingiverse_backend.Models.AppUser", null)
+                    b.HasOne("Thingiverse.Domain.Models.AppUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -496,7 +500,7 @@ namespace thingiverse_backend.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("thingiverse_backend.Models.AppUser", null)
+                    b.HasOne("Thingiverse.Domain.Models.AppUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -505,20 +509,20 @@ namespace thingiverse_backend.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("thingiverse_backend.Models.AppUser", null)
+                    b.HasOne("Thingiverse.Domain.Models.AppUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("thingiverse_backend.Models.Comment", b =>
+            modelBuilder.Entity("Thingiverse.Domain.Models.Comment", b =>
                 {
-                    b.HasOne("thingiverse_backend.Models.AppUser", "AppUser")
+                    b.HasOne("Thingiverse.Domain.Models.AppUser", "AppUser")
                         .WithMany("Comments")
                         .HasForeignKey("AppUserId");
 
-                    b.HasOne("thingiverse_backend.Models.Item", "Item")
+                    b.HasOne("Thingiverse.Domain.Models.Item", "Item")
                         .WithMany("Comments")
                         .HasForeignKey("ItemId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -529,18 +533,18 @@ namespace thingiverse_backend.Migrations
                     b.Navigation("Item");
                 });
 
-            modelBuilder.Entity("thingiverse_backend.Models.Item", b =>
+            modelBuilder.Entity("Thingiverse.Domain.Models.Item", b =>
                 {
-                    b.HasOne("thingiverse_backend.Models.AppUser", "AppUser")
+                    b.HasOne("Thingiverse.Domain.Models.AppUser", "AppUser")
                         .WithMany("Items")
                         .HasForeignKey("AppUserId");
 
                     b.Navigation("AppUser");
                 });
 
-            modelBuilder.Entity("thingiverse_backend.Models.ItemImage", b =>
+            modelBuilder.Entity("Thingiverse.Domain.Models.ItemImage", b =>
                 {
-                    b.HasOne("thingiverse_backend.Models.Item", "Item")
+                    b.HasOne("Thingiverse.Domain.Models.Item", "Item")
                         .WithMany("Images")
                         .HasForeignKey("ItemId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -549,15 +553,15 @@ namespace thingiverse_backend.Migrations
                     b.Navigation("Item");
                 });
 
-            modelBuilder.Entity("thingiverse_backend.Models.ItemLike", b =>
+            modelBuilder.Entity("Thingiverse.Domain.Models.ItemLike", b =>
                 {
-                    b.HasOne("thingiverse_backend.Models.AppUser", "AppUser")
+                    b.HasOne("Thingiverse.Domain.Models.AppUser", "AppUser")
                         .WithMany()
                         .HasForeignKey("AppUserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("thingiverse_backend.Models.Item", "Item")
+                    b.HasOne("Thingiverse.Domain.Models.Item", "Item")
                         .WithMany("ItemLikes")
                         .HasForeignKey("ItemId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -568,15 +572,15 @@ namespace thingiverse_backend.Migrations
                     b.Navigation("Item");
                 });
 
-            modelBuilder.Entity("thingiverse_backend.Models.Make", b =>
+            modelBuilder.Entity("Thingiverse.Domain.Models.Make", b =>
                 {
-                    b.HasOne("thingiverse_backend.Models.Item", "Item")
+                    b.HasOne("Thingiverse.Domain.Models.Item", "Item")
                         .WithMany("Makes")
                         .HasForeignKey("ItemId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("thingiverse_backend.Models.AppUser", "User")
+                    b.HasOne("Thingiverse.Domain.Models.AppUser", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -587,9 +591,9 @@ namespace thingiverse_backend.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("thingiverse_backend.Models.ThingImage", b =>
+            modelBuilder.Entity("Thingiverse.Domain.Models.ThingImage", b =>
                 {
-                    b.HasOne("thingiverse_backend.Models.Thing", "Thing")
+                    b.HasOne("Thingiverse.Domain.Models.Thing", "Thing")
                         .WithMany("Images")
                         .HasForeignKey("ThingId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -598,14 +602,14 @@ namespace thingiverse_backend.Migrations
                     b.Navigation("Thing");
                 });
 
-            modelBuilder.Entity("thingiverse_backend.Models.AppUser", b =>
+            modelBuilder.Entity("Thingiverse.Domain.Models.AppUser", b =>
                 {
                     b.Navigation("Comments");
 
                     b.Navigation("Items");
                 });
 
-            modelBuilder.Entity("thingiverse_backend.Models.Item", b =>
+            modelBuilder.Entity("Thingiverse.Domain.Models.Item", b =>
                 {
                     b.Navigation("Comments");
 
@@ -616,7 +620,7 @@ namespace thingiverse_backend.Migrations
                     b.Navigation("Makes");
                 });
 
-            modelBuilder.Entity("thingiverse_backend.Models.Thing", b =>
+            modelBuilder.Entity("Thingiverse.Domain.Models.Thing", b =>
                 {
                     b.Navigation("Images");
                 });

@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Thingiverse.Application.Contracts.DTO.Account;
 using Thingiverse.Application.Interfaces;
@@ -42,6 +44,46 @@ namespace thingiverse_backend.Controllers
                 return Unauthorized(new { message });
 
             return Ok(user);
+        }
+
+        [HttpPut("update-profile")]
+        [Authorize]
+
+        public async Task<IActionResult> UpdateProfile([FromForm] UpdateProfileDto dto)
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier); // JWT veya Identity'den alabilirsin (sub claim vs.)
+
+            if (string.IsNullOrEmpty(userId))
+                return Unauthorized(new { message = "Kullanıcı girişi gerekli" });
+
+            var (success, message, user) = await _accountRepo.UpdateProfileAsync(userId, dto);
+
+            if (!success)
+                return BadRequest(new { message });
+
+            return Ok(user);
+        }
+
+        [HttpPut("change-password")]
+        [Authorize]
+        public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordDto dto)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(new { message = "Geçersiz form verileri" });
+
+            if (dto.NewPassword != dto.ConfirmPassword)
+                return BadRequest(new { message = "Yeni şifreler eşleşmiyor" });
+
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (string.IsNullOrEmpty(userId))
+                return Unauthorized(new { message = "Kullanıcı girişi gerekli" });
+
+            var (success, message) = await _accountRepo.ChangePasswordAsync(userId, dto);
+
+            if (!success)
+                return BadRequest(new { message });
+
+            return Ok(new { message = "Şifre başarıyla güncellendi" });
         }
     }
 }

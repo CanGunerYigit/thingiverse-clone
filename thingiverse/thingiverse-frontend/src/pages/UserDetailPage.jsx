@@ -13,72 +13,82 @@ export default function UserDetail() {
   const [loading, setLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
 
-  useEffect(() => {
+  const currentUserId = localStorage.getItem("userId"); 
+
+  const fetchUserData = async () => {
     setLoading(true);
     setNotFound(false);
 
-    Promise.all([
-      fetch(`https://localhost:7267/api/User/${id}`).then((res) => {
-        if (!res.ok) throw new Error("User not found");
-        return res.json();
-      }),
-      fetch(`https://localhost:7267/api/Comment/user/${id}`).then((res) => {
-        if (!res.ok) throw new Error("Comments not found");
-        return res.json();
-      }),
-      fetch(`https://localhost:7267/api/Like/user/${id}`).then((res) => {
-        if (!res.ok) throw new Error("Likes not found");
-        return res.json();
-      }),
-    ])
-      .then(([userData, commentsData, likesData]) => {
-        setUser(userData);
-        setComments(commentsData);
-        setLikes(likesData);
-      })
-      .catch((err) => {
-        console.error(err);
-        setNotFound(true);
-      })
-      .finally(() => setLoading(false));
+    // Burada userIdToFetch'i tanımlıyoruz
+    const userIdToFetch = id === currentUserId ? currentUserId : id;
+
+    try {
+      const userRes = await fetch(`https://localhost:7267/api/User/${userIdToFetch}`);
+      if (!userRes.ok) throw new Error("User not found");
+      const userData = await userRes.json();
+      setUser(userData);
+
+      // Navbar username'i güncelle (eğer prop geçtiyse)
+      if (currentUserId === userData.id && typeof setUsername === "function") {
+        setUsername(userData.userName);
+      }
+
+      const [commentsRes, likesRes] = await Promise.all([
+        fetch(`https://localhost:7267/api/Comment/user/${userIdToFetch}`),
+        fetch(`https://localhost:7267/api/Like/user/${userIdToFetch}`)
+      ]);
+
+      const commentsData = commentsRes.ok ? await commentsRes.json() : [];
+      const likesData = likesRes.ok ? await likesRes.json() : [];
+
+      setComments(commentsData);
+      setLikes(likesData);
+
+    } catch (err) {
+      console.error(err);
+      setNotFound(true);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchUserData();
   }, [id]);
 
-  if (loading)
-    return (
-      <div className="flex justify-center items-center h-screen">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
-      </div>
-    );
+  if (loading) return <div className="flex justify-center items-center h-screen">
+    <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+  </div>;
 
-  if (notFound)
-    return (
-      <div className="flex flex-col items-center justify-center h-screen text-red-500">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-16 w-16 mb-4"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-          />
-        </svg>
-        <h1 className="text-2xl font-bold">User not found</h1>
-        <p className="text-gray-600 mt-2">The requested user does not exist</p>
-      </div>
-    );
+  if (notFound) return <div className="flex flex-col items-center justify-center h-screen text-red-500">
+    <h1 className="text-2xl font-bold">User not found</h1>
+  </div>;
 
-  if (!user) return <div className="text-center mt-10">Loading user data...</div>;
+  // Şu satır çok önemli: string karşılaştırması kesinlikle eşleşmeli
+const isCurrentUser = user?.id?.toString() === currentUserId?.toString();
 
   return (
-    <div className="container mx-auto px-4 py-8 max-w-6xl">
-      <UserProfile user={user} commentsCount={comments.length} likesCount={likes.length} />
-      <UserComments comments={comments} />
-      <UserLikes likes={likes} />
-    </div>
-  );
+    
+  <div className="container mx-auto px-4 py-8 max-w-6xl">
+    {console.log(
+      "isCurrentUser:",
+      currentUserId === user.id,
+      "user.id:",
+      user.id,
+      "localStorageId:",
+      localStorage.getItem("userId")
+    )}
+    <UserProfile
+  user={user}
+  commentsCount={comments.length}
+  likesCount={likes.length}
+  isCurrentUser={currentUserId === user.id}
+  onProfileUpdated={fetchUserData}
+/>
+    <UserComments comments={comments} />
+    <UserLikes likes={likes} />
+  </div>
+);
+
+  
 }

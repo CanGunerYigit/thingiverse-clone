@@ -2,8 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Thingiverse.Application.Abstractions.Interfaces;
 using Thingiverse.Application.Contracts.DTO;
-using Thingiverse.Application.Services;
-
+using Thingiverse.Integration.Services;
 namespace thingiverse_backend.Controllers
 {
     [Route("api/[controller]")]
