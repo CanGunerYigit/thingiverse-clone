@@ -50,23 +50,28 @@ export default function CommentsTab({
         <p>Henüz yorum yapılmamış.</p>
       ) : (
         <ul className="space-y-3">
-          {comments.map((comment) => (
-            <li
-              key={comment.id}
-              className="border p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition"
-            >
-              <Link
-                to={`/user/${comment.userId}`}
-                className="font-medium text-blue-600 hover:underline"
+          {comments.map((comment) => {
+            const key = comment.Id || `${comment.UserId}_${comment.CreatedAt}`;
+            return (
+              <li
+                key={key}
+                className="border p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition"
               >
-                {comment.userName}
-              </Link>
-              <p className="text-gray-700 mt-1">{comment.message}</p>
-              <small className="text-gray-500">
-                {new Date(comment.createdAt).toLocaleString("tr-TR")}
-              </small>
-            </li>
-          ))}
+                <Link
+                  to={`/user/${comment.UserId}`}
+                  className="font-medium text-blue-600 hover:underline"
+                >
+                  {comment.UserName || "Unknown"}
+                </Link>
+                <p className="text-gray-700 mt-1">{comment.Message || ""}</p>
+                <small className="text-gray-500">
+                  {comment.CreatedAt
+                    ? new Date(comment.CreatedAt).toLocaleString("tr-TR")
+                    : "Tarih yok"}
+                </small>
+              </li>
+            );
+          })}
         </ul>
       )}
 

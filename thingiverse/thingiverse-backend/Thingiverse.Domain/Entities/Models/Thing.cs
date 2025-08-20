@@ -14,8 +14,7 @@
         public string UserName { get; set; }
         public DateTime CreatedAt { get; set; }
 
-        // Resimleri ayrı tablodan yönetmek daha doğru ama
-        // istersen Images için sadece path tutabiliriz
+        
         public List<ThingImage> Images { get; set; }
     }
 }

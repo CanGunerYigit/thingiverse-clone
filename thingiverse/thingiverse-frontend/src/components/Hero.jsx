@@ -11,7 +11,7 @@ export default function Hero() {
         backgroundColor: '#1a365d' //bg image çalışmazsa
       }}
     >
-      <div className="container mx-auto flex flex-col items-center justify-center h-full text-center px-4">
+<div className="w-full max-w-7xl mx-auto flex flex-col items-center justify-center h-full text-center px-4">
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">
           Welcome to Thingiverse
         </h1>

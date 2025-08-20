@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link, useNavigate } from "react-router-dom"; 
+import { Link, useNavigate } from "react-router-dom";
 import SearchBar from "./SearchBar";
 import { CirclePlus, Menu, X, ChevronLeft } from "lucide-react";
 import thingsHeader from "../assets/page-header__things.jpg";
@@ -15,35 +15,57 @@ export default function Navbar() {
   const dropdownRef = useRef(null);
   const navigate = useNavigate();
 
-  // Backend’den kullanıcıyı fetch et
+  // Kullanıcıyı localStorage + backend’den çek
   useEffect(() => {
-    const fetchUser = async () => {
-      const storedUser = localStorage.getItem("user");
-      if (!storedUser) return;
+  const fetchUser = async () => {
+    console.log("Navbar: fetchUser triggered!");
+    const storedUser = localStorage.getItem("user");
+    if (!storedUser) {
+      setUsername(null);
+      setProfileImage(null);
+      return;
+    }
 
-      try {
-        const parsedUser = JSON.parse(storedUser);
-        const res = await fetch(`https://localhost:7267/api/User/${parsedUser.id}`);
-        if (res.ok) {
-          const data = await res.json();
-          setUsername(data.userName);
-          setProfileImage(data.profileImageUrl ? `https://localhost:7267${data.profileImageUrl}` : null);
-        } else {
-          setUsername(parsedUser.userName);
-          setProfileImage(null);
-        }
-      } catch {
-        setUsername(null);
-        setProfileImage(null);
+    try {
+      const parsedUser = JSON.parse(storedUser);
+
+      // Önce login response’tan koy
+      setUsername(parsedUser.userName);
+      setProfileImage(null);
+
+      // Sonra API'den detay çek
+      const res = await fetch(`https://localhost:7267/api/User/${parsedUser.id}`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
+
+      if (res.ok) {
+        const data = await res.json();
+        console.log("User API data:", data);
+        setUsername(data.UserName); // PascalCase
+        setProfileImage(
+          data.ProfileImageUrl ? `https://localhost:7267${data.ProfileImageUrl}` : null
+        );
+      } else {
+        console.warn("User fetch failed:", res.status);
       }
-    };
+    } catch (err) {
+      console.error("fetchUser error:", err);
+      setUsername(null);
+      setProfileImage(null);
+    }
+  };
 
-    fetchUser();
-    window.addEventListener("userUpdated", fetchUser);
-    return () => window.removeEventListener("userUpdated", fetchUser);
-  }, []);
+  fetchUser();
+  window.addEventListener("userUpdated", fetchUser);
+  return () => window.removeEventListener("userUpdated", fetchUser);
+}, []);
 
-  // dışarı tıklayınca dropdown kapat
+
+
+
+  // dışarı tıklanınca dropdown kapat
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -68,6 +90,7 @@ export default function Navbar() {
     setProfileImage(null);
     setShowDropdown(false);
     setMobileMenuOpen(false);
+    window.location.href = "/"; // logout sonrası yönlendirme
   };
 
   const goBack = () => navigate(-1);
@@ -79,10 +102,12 @@ export default function Navbar() {
         <div className="flex items-center space-x-4">
           {location.pathname !== "/" && (
             <button onClick={goBack} className="px-3 py-1 rounded-md">
-              <ChevronLeft/>
+              <ChevronLeft />
             </button>
           )}
-          <Link to="/" className="text-xl font-bold">Thingiverse</Link>
+          <Link to="/" className="text-xl font-bold">
+            Thingiverse
+          </Link>
         </div>
 
         {/* Search Bar */}
@@ -96,16 +121,16 @@ export default function Navbar() {
             <>
               <Link to="/create-item">
                 <button className="bg-white border text-black px-3 py-1 rounded-xl flex items-center hover:text-blue-400 hover:border-blue-400">
-                  <CirclePlus size={16}/> <span className="ml-1">Create</span>
+                  <CirclePlus size={16} /> <span className="ml-1">Create</span>
                 </button>
               </Link>
 
-              {/* Dropdown + Profil Foto veya Harf */}
+              {/* Dropdown + Profil */}
               <div className="relative flex items-center" ref={dropdownRef}>
                 {profileImage ? (
-                  <img 
-                    src={profileImage} 
-                    alt="avatar" 
+                  <img
+                    src={profileImage}
+                    alt="avatar"
                     className="w-8 h-8 rounded-full mr-2 object-cover"
                   />
                 ) : (
@@ -113,33 +138,36 @@ export default function Navbar() {
                     {username ? username.charAt(0).toUpperCase() : "?"}
                   </div>
                 )}
-                <button onClick={toggleDropdown} className="px-3 py-1 hover:bg-blue-500 rounded-xl">
+                <button
+                  onClick={toggleDropdown}
+                  className="px-3 py-1 hover:bg-blue-500 rounded-xl"
+                >
                   {username} ▾
                 </button>
-                              {showDropdown && (
-                <div className="absolute right-0 mt-[150px] w-40 bg-white rounded-lg shadow-lg text-black ">
-                  <button
-                    onClick={() => {
-                      const storedUser = localStorage.getItem("user");
-                      if (storedUser) {
-                        const parsedUser = JSON.parse(storedUser);
-                        navigate(`/user/${parsedUser.id}`);
-                        setShowDropdown(false); // dropdown kapansın
-                      }
-                    }}
-                    className="block w-full text-left px-4 py-2 hover:bg-gray-100"
-                  >
-                    Profile
-                  </button>
-                  <button
-                    onClick={handleLogout}
-                    className="block w-full text-left px-4 py-2 hover:bg-gray-100"
-                  >
-                    Logout
-                  </button>
-                </div>
-              )}
 
+                {showDropdown && (
+                  <div className="absolute right-0 mt-[150px] w-40 bg-white rounded-lg shadow-lg text-black ">
+                    <button
+                      onClick={() => {
+                        const storedUser = localStorage.getItem("user");
+                        if (storedUser) {
+                          const parsedUser = JSON.parse(storedUser);
+                          navigate(`/user/${parsedUser.id}`);
+                          setShowDropdown(false);
+                        }
+                      }}
+                      className="block w-full text-left px-4 py-2 hover:bg-gray-100"
+                    >
+                      Profile
+                    </button>
+                    <button
+                      onClick={handleLogout}
+                      className="block w-full text-left px-4 py-2 hover:bg-gray-100"
+                    >
+                      Logout
+                    </button>
+                  </div>
+                )}
               </div>
             </>
           ) : (
@@ -153,7 +181,10 @@ export default function Navbar() {
         </div>
 
         {/* Mobil Menü Butonu */}
-        <button className="md:hidden" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+        <button
+          className="md:hidden"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+        >
           {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
@@ -164,11 +195,15 @@ export default function Navbar() {
           <h3 className="font-semibold text-center mb-2">Join the Community</h3>
           <div className="flex items-center mb-3">
             <img src={thingsHeader} alt="" className="w-[70px] h-[32px]" />
-            <span className="text-sm pl-2"><b>2M+</b> Things across all categories</span>
+            <span className="text-sm pl-2">
+              <b>2M+</b> Things across all categories
+            </span>
           </div>
           <div className="flex items-center mb-4">
             <img src={thingsCreator} alt="" className="w-[70px] h-[32px]" />
-            <span className="text-sm pl-2"><b>70k+</b> Creators</span>
+            <span className="text-sm pl-2">
+              <b>70k+</b> Creators
+            </span>
           </div>
           <div className="flex justify-center">
             <Link to="/signup">
@@ -180,7 +215,10 @@ export default function Navbar() {
           <div className="w-full border-t border-gray-200 my-4" />
           <div className="flex justify-between items-center">
             <p className="text-sm text-gray-600">Already have an account?</p>
-            <Link to="/login" className="text-[#2B52FE] font-medium border p-2 px-5 text-sm border-[#2B52FE] rounded-lg hover:bg-gray-100">
+            <Link
+              to="/login"
+              className="text-[#2B52FE] font-medium border p-2 px-5 text-sm border-[#2B52FE] rounded-lg hover:bg-gray-100"
+            >
               Log in
             </Link>
           </div>
@@ -193,11 +231,16 @@ export default function Navbar() {
           <div className="flex justify-center mb-2">
             <SearchBar />
           </div>
-          <Link to="/" className="block hover:underline text-white">Explore</Link>
+          <Link to="/" className="block hover:underline text-white">
+            Explore
+          </Link>
 
           {username ? (
             <>
-              <Link to="/create-item" className="block bg-green-600 text-white px-3 py-1 rounded-xl text-center">
+              <Link
+                to="/create-item"
+                className="block bg-green-600 text-white px-3 py-1 rounded-xl text-center"
+              >
                 Create
               </Link>
               <button

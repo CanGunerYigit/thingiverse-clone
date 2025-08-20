@@ -15,20 +15,20 @@ using Thingiverse.Domain.Models;
 using Thingiverse.Infrastructure.Persistence.Identity;
 using Thingiverse.Infrastructure.Repositories;
 using thingiverse_backend.Interfaces;
-using thingiverse_backend.Migrations;
 using thingiverse_backend.Services;
 using Thingiverse.Integration.Services;
+using Microsoft.Data.SqlClient;
+using System.Data;
+using System.Text.Json;
+using System.Threading.RateLimiting;
+using Microsoft.AspNetCore.RateLimiting;
 
 var builder = WebApplication.CreateBuilder(args);
-
-// --- Configuration ---
 var configuration = builder.Configuration;
 
-// --- DbContext ---
+// --- DbContext (Identity için) ---
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"),
-        b => b.MigrationsAssembly("Thingiverse.Infrastructure")));
-
+    options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
 // --- Identity ---
 builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
@@ -39,7 +39,8 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
     options.Password.RequireNonAlphanumeric = true;
     options.Password.RequiredLength = 10;
 })
-.AddEntityFrameworkStores<ApplicationDbContext>();
+.AddEntityFrameworkStores<ApplicationDbContext>()
+.AddDefaultTokenProviders();
 
 // --- Authentication (JWT) ---
 builder.Services.AddAuthentication(options =>
@@ -54,11 +55,7 @@ builder.Services.AddAuthentication(options =>
         ValidateIssuer = true,
         ValidIssuer = configuration["JWT:Issuer"],
         ValidateAudience = true,
-        ValidAudiences = new[]
-        {
-            configuration["JWT:Audience"],
-            "http://localhost:5173"
-        },
+        ValidAudiences = new[] { configuration["JWT:Audience"], "http://localhost:5173" },
         ValidateIssuerSigningKey = true,
         IssuerSigningKey = new SymmetricSecurityKey(
             Encoding.UTF8.GetBytes(configuration["JWT:SigningKey"])
@@ -69,21 +66,19 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
-// --- CORS --- Güncellenmiþ versiyon
+// --- CORS ---
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowReactApp",
         policy => policy
-            .WithOrigins(
-                "http://localhost:5173",
-                "https://localhost:5173") // HTTPS ekledik
+            .WithOrigins("http://localhost:5173", "https://localhost:5173")
             .AllowAnyHeader()
             .AllowAnyMethod()
             .AllowCredentials()
-            .WithExposedHeaders("Content-Disposition")); // Dosya indirme için gerekli
+            .WithExposedHeaders("Content-Disposition"));
 });
 
-// --- HttpClient & Services --- Güncellenmiþ versiyon
+// --- HttpClient & Services ---
 builder.Services.AddHttpClient("Thingiverse", client =>
 {
     client.BaseAddress = new Uri("https://api.thingiverse.com/");
@@ -93,12 +88,18 @@ builder.Services.AddHttpClient("Thingiverse", client =>
 builder.Services.AddScoped<ThingiverseService>();
 builder.Services.AddScoped<IDownloadService, DownloadService>(provider =>
 {
-    var httpClientFactory = provider.GetRequiredService<IHttpClientFactory>();
-    var client = httpClientFactory.CreateClient("Thingiverse");
+    var client = provider.GetRequiredService<IHttpClientFactory>().CreateClient("Thingiverse");
     return new DownloadService(client);
 });
 
-// Diðer servisler
+// --- Dapper için IDbConnection ---
+builder.Services.AddScoped<IDbConnection>(sp =>
+{
+    var connectionString = configuration.GetConnectionString("DefaultConnection");
+    return new SqlConnection(connectionString);
+});
+
+// --- DI Servisler ---
 builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<ILikeRepository, LikeRepository>();
 builder.Services.AddScoped<ILikeService, LikeService>();
@@ -110,6 +111,7 @@ builder.Services.AddScoped<INewestRepository, NewestRepository>();
 builder.Services.AddScoped<IPopularRepository, PopularRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IThingRepository, ThingRepository>();
+builder.Services.AddHttpContextAccessor();
 
 // --- Controllers & JSON Options ---
 builder.Services.AddControllers()
@@ -118,6 +120,13 @@ builder.Services.AddControllers()
         opt.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
         opt.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
     });
+
+builder.Services.AddControllers()
+    .AddJsonOptions(opt =>
+    {
+        opt.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+    });
+
 
 // --- Swagger ---
 builder.Services.AddEndpointsApiExplorer();
@@ -140,13 +149,31 @@ builder.Services.AddSwaggerGen(option =>
             {
                 Reference = new OpenApiReference
                 {
-                    Type=ReferenceType.SecurityScheme,
-                    Id="Bearer"
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
                 }
             },
             Array.Empty<string>()
         }
     });
+});
+builder.Services.AddRateLimiter(options =>  //rate limit dakikada 5 istek
+{
+    options.GlobalLimiter = PartitionedRateLimiter.Create<HttpContext, string>(httpContext =>
+    {
+        // IP adresini al
+        var ip = httpContext.Connection.RemoteIpAddress?.ToString() ?? "unknown";
+
+        return RateLimitPartition.GetFixedWindowLimiter(ip, _ => new FixedWindowRateLimiterOptions
+        {
+            PermitLimit = 5,                
+            Window = TimeSpan.FromMinutes(1), 
+            QueueProcessingOrder = QueueProcessingOrder.OldestFirst,
+            QueueLimit = 2
+        });
+    });
+
+    options.RejectionStatusCode = 429; // çok request
 });
 
 var app = builder.Build();
@@ -159,29 +186,37 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
-// CORS middleware auth/authorization'dan önce
 app.UseCors("AllowReactApp");
 
 app.UseRouting();
-app.UseStaticFiles();
+
 // --- Static Files ---
+// wwwroot (varsayýlan)
+app.UseStaticFiles();
+
+// Ekstra upload klasörü (eðer ileride lazým olursa)
 var uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "upload");
 if (!Directory.Exists(uploadPath))
-{
     Directory.CreateDirectory(uploadPath);
-}
 
 app.UseStaticFiles(new StaticFileOptions
 {
     FileProvider = new PhysicalFileProvider(uploadPath),
     RequestPath = "/upload"
 });
+var uploadway = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "upload");
+if (!Directory.Exists(uploadway))
+    Directory.CreateDirectory(uploadway);
 
-// --- Authentication & Authorization ---
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(uploadway),
+    RequestPath = "/upload"
+});
+
+
 app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
-
 app.Run();

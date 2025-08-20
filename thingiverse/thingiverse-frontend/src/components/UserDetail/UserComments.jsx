@@ -1,5 +1,7 @@
+import React from "react";
+
 export default function UserComments({ comments }) {
-  if (comments.length === 0) {
+  if (!comments || comments.length === 0) {
     return (
       <div className="bg-white rounded-lg shadow-md p-6 mb-8 text-center py-8">
         <svg
@@ -31,21 +33,26 @@ export default function UserComments({ comments }) {
       <div className="space-y-4">
         {comments.map((comment) => (
           <div
-            key={comment.id}
+            key={comment.Id}
             className="border border-gray-200 rounded-lg p-4 hover:bg-gray-50 transition-colors"
           >
             <div className="flex justify-between items-start">
               <div>
+                {/* Always go to our ItemDetail page */}
                 <a
-                  href={`/item/${comment.item.id}`}
+                  href={`/item/${comment.ItemId}`}
                   className="text-blue-600 hover:text-blue-800 font-medium"
                 >
-                  {comment.item.name}
+                  {comment.Name}
                 </a>
-                <p className="text-gray-800 mt-2">{comment.message}</p>
+
+                {/* Comment message */}
+                <p className="text-gray-800 mt-2">{comment.Message}</p>
               </div>
+
+              {/* Comment date */}
               <span className="text-xs text-gray-500 whitespace-nowrap">
-                {new Date(comment.createdAt).toLocaleString()}
+                {new Date(comment.CreatedAt).toLocaleString("tr-TR")}
               </span>
             </div>
           </div>

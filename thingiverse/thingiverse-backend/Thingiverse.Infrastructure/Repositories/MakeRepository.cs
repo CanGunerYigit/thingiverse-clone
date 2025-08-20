@@ -1,30 +1,36 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Thingiverse.Infrastructure.Persistence.Identity;
+﻿using Dapper;
 using Thingiverse.Application.Contracts.DTO;
 using Thingiverse.Application.Interfaces;
 using Thingiverse.Domain.Models;
+using System.Data;
+using System.Text.Json;
+
 namespace Thingiverse.Infrastructure.Repositories
 {
     public class MakeRepository : IMakeRepository
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IDbConnection _connection;
         private readonly string _uploadFolderPath;
 
-        public MakeRepository(ApplicationDbContext context)
+        public MakeRepository(IDbConnection connection)
         {
-            _context = context;
+            _connection = connection;
             _uploadFolderPath = Path.Combine(Directory.GetCurrentDirectory(), "upload");
             if (!Directory.Exists(_uploadFolderPath))
                 Directory.CreateDirectory(_uploadFolderPath);
         }
+
         public async Task<Make> CreateMakeAsync(int itemId, ThingMakeDto dto, string userId)
         {
-            var item = await _context.Items.FindAsync(itemId);
+            var item = await _connection.QueryFirstOrDefaultAsync<Item>(
+       "SELECT * FROM Items WHERE Id = @Id",
+       new { Id = itemId }
+   );
+
             if (item == null)
                 throw new Exception("Item not found");
 
             var imagePaths = new List<string>();
-
             if (dto.Images != null && dto.Images.Any())
             {
                 foreach (var image in dto.Images)
@@ -33,12 +39,10 @@ namespace Thingiverse.Infrastructure.Repositories
                     {
                         var fileName = Path.GetFileName(image.FileName);
                         var filePath = Path.Combine(_uploadFolderPath, fileName);
-
                         using (var stream = new FileStream(filePath, FileMode.Create))
                         {
                             await image.CopyToAsync(stream);
                         }
-
                         imagePaths.Add("/upload/" + fileName);
                     }
                 }
@@ -51,85 +55,71 @@ namespace Thingiverse.Infrastructure.Repositories
                 Description = dto.Description,
                 PreviewImage = dto.PreviewImage,
                 CreatedAt = DateTime.Now,
-                ImagePaths = imagePaths,
+                ImagePaths = imagePaths, 
                 ItemId = itemId,
-                Item = item,
                 UserId = userId
             };
 
-            _context.Makes.Add(make);
-            await _context.SaveChangesAsync();
+            // jsona çevir dbye kaydet
+            var sql = @"INSERT INTO Makes 
+                (Name, Thumbnail, Description, PreviewImage, CreatedAt, ImagePaths, ItemId, UserId)
+                VALUES
+                (@Name, @Thumbnail, @Description, @PreviewImage, @CreatedAt, @ImagePathsJson, @ItemId, @UserId);
+                SELECT CAST(SCOPE_IDENTITY() as int);";
+
+            // execute ederken json olarak gönder
+            make.Id = await _connection.ExecuteScalarAsync<int>(sql, new
+            {
+                make.Name,
+                make.Thumbnail,
+                make.Description,
+                make.PreviewImage,
+                make.CreatedAt,
+                ImagePathsJson = JsonSerializer.Serialize(make.ImagePaths),
+                make.ItemId,
+                make.UserId
+            });
 
             return make;
         }
 
         public async Task<List<object>> GetItemsByMostMakesAsync()
         {
-            var itemsWithMakeCount = await _context.Items
-                .Select(item => new
-                {
-                    Item = item,
-                    MakeCount = _context.Makes.Count(m => m.ItemId == item.Id)
-                })
-                .OrderByDescending(x => x.MakeCount)
-                .ToListAsync();
+            var sql = @"
+                SELECT 
+                    i.Id, i.Name, i.Description, i.Thumbnail, 
+                    COUNT(m.Id) AS MakeCount
+                FROM Items i
+                LEFT JOIN Makes m ON i.Id = m.ItemId
+                GROUP BY i.Id, i.Name, i.Description, i.Thumbnail
+                ORDER BY MakeCount DESC";
 
-            return itemsWithMakeCount.Cast<object>().ToList();
+            var result = await _connection.QueryAsync(sql);
+            return result.ToList<object>();
         }
 
         public async Task<object?> GetMakeByIdAsync(int makeId)
         {
-            var make = await _context.Makes
-                .Include(m => m.User)
-                .FirstOrDefaultAsync(m => m.Id == makeId);
+            var sql = @"
+                SELECT m.Id, m.Name, m.Description, m.Thumbnail, m.PreviewImage, m.CreatedAt, m.ImagePaths, m.ItemId, m.UserId, u.UserName
+                FROM Makes m
+                LEFT JOIN AspNetUsers u ON m.UserId = u.Id
+                WHERE m.Id = @Id";
 
-            if (make == null) return null;
-
-            var userName = make.User?.UserName ?? "Anonymous";
-
-            return new
-            {
-                make.Id,
-                make.Name,
-                make.Thumbnail,
-                make.PreviewImage,
-                make.Description,
-                make.CreatedAt,
-                make.UserId,
-                UserName = userName,
-                ImagePaths = make.ImagePaths
-            };
+            var make = await _connection.QueryFirstOrDefaultAsync(sql, new { Id = makeId });
+            return make;
         }
 
         public async Task<List<object>> GetMakesByItemIdAsync(int itemId)
         {
-            var makesList = await _context.Makes
-                .Where(m => m.ItemId == itemId)
-                .Include(m => m.User)
-                .ToListAsync();
+            var sql = @"
+                SELECT m.Id, m.Name, m.Description, m.Thumbnail, m.PreviewImage, m.CreatedAt, m.ImagePaths, m.ItemId, m.UserId, u.UserName
+                FROM Makes m
+                LEFT JOIN AspNetUsers u ON m.UserId = u.Id
+                WHERE m.ItemId = @ItemId";
 
-            var makesDto = new List<object>();
-
-            foreach (var m in makesList)
-            {
-                string userName = m.User?.UserName ?? "Anonymous";
-                string? imageUrl = m.ImagePaths?.FirstOrDefault();
-
-                makesDto.Add(new
-                {
-                    m.Id,
-                    m.Name,
-                    m.Thumbnail,
-                    m.PreviewImage,
-                    m.Description,
-                    m.CreatedAt,
-                    m.UserId,
-                    UserName = userName,
-                    ImageUrl = imageUrl
-                });
-            }
-
-            return makesDto;
+            var makes = await _connection.QueryAsync(sql, new { ItemId = itemId });
+            return makes.ToList<object>();
         }
     }
 }

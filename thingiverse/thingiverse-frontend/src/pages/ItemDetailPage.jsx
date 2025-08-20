@@ -31,7 +31,7 @@ export default function ItemDetail() {
   const fetchItem = async () => {
     try {
       const res = await fetch(`https://localhost:7267/api/Items/${id}/with-images`);
-      if (!res.ok) throw new Error();
+      if (!res.ok) throw new Error("Item fetch failed");
       const data = await res.json();
       setItem(data);
       setSelectedImageIndex(0);
@@ -45,7 +45,7 @@ export default function ItemDetail() {
   const fetchComments = async () => {
     try {
       const res = await fetch(`https://localhost:7267/api/Comment/item/${id}`);
-      if (!res.ok) throw new Error();
+      if (!res.ok) throw new Error("Comments fetch failed");
       const data = await res.json();
       setComments(data);
     } catch {
@@ -60,7 +60,7 @@ export default function ItemDetail() {
       const res = await fetch(`https://localhost:7267/api/Makes/item/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
-      if (!res.ok) throw new Error();
+      if (!res.ok) throw new Error("Makes fetch failed");
       const data = await res.json();
       setMakes(data);
     } catch (error) {
@@ -70,9 +70,31 @@ export default function ItemDetail() {
     }
   };
 
-  const allImages = item
-    ? [item.thumbnail, ...(item.images?.map(img => `https://localhost:7267/api/Items/image/${img.thingId}/${img.id}`) || [])]
-    : [];
+  // Tüm görselleri backend'den gelen URL’lerle alıyoruz
+ const [allImages, setAllImages] = useState([]);
+
+useEffect(() => {
+  if (!item) return;
+
+  const fetchImageUrls = async () => {
+    const urls = [];
+
+    // thumbnail varsa ekle
+    if (item.thumbnail) {
+      urls.push(item.thumbnail);
+    }
+
+    // images içindeki tüm url'ler için API'den gerçek görseli al
+    const backendImageUrls = (item.images || []).map((img) => {
+      return `https://localhost:7267/api/Items/image/${img.itemId}/${img.id}`;
+      });
+
+setAllImages([...urls, ...backendImageUrls]);  };
+
+  fetchImageUrls();
+}, [item]);
+
+
 
   if (loading) return <div className="p-6">Yükleniyor...</div>;
   if (error || !item) return <div className="p-6 text-red-500">Hata oluştu.</div>;
@@ -80,14 +102,18 @@ export default function ItemDetail() {
   return (
     <div className="max-w-4xl mx-auto p-6">
       <ItemHeader item={item} />
+
       <div className="mb-8 flex flex-row h-[400px] gap-4">
         <ImageSlider
-          images={allImages}
-          selectedIndex={selectedImageIndex}
-          setSelectedIndex={setSelectedImageIndex}
-          itemName={item.name}
-        />
+  images={allImages}
+  selectedIndex={selectedImageIndex}
+  setSelectedIndex={setSelectedImageIndex}
+  itemName={item.name}
+/>
+
+
       </div>
+
       <DownloadMakeButtons token={token} item={item} />
       <Tabs activeTab={activeTab} setActiveTab={setActiveTab} />
 

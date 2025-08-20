@@ -4,7 +4,7 @@ import LoginWelcome from "../components/Login/LoginWelcome";
 import LoginForm from "../components/Login/LoginForm";
 
 export default function LoginPage() {
-  const [form, setForm] = useState({ username: "", password: "" });
+  const [form, setForm] = useState({ userName: "", password: "" }); // backend userName bekliyor
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -42,12 +42,14 @@ export default function LoginPage() {
       const data = JSON.parse(text);
       console.log("Parsed login data:", data);
 
-      // Token ve userId'yi localStorage'a kaydet
+      // Token ve kullanıcı bilgilerini localStorage'a kaydet
       localStorage.setItem("token", data.token);
-      // Login response yapısına göre userId alıyoruz
-      localStorage.setItem("userId", data.user?.id || data.id);
+      localStorage.setItem("userId", data.id);
+      localStorage.setItem("userName", data.userName);
+      localStorage.setItem("email", data.email);
       localStorage.setItem("user", JSON.stringify(data));
-
+      console.log("LoginPage: userUpdated event dispatched!");
+      window.dispatchEvent(new Event("userUpdated"));
       // Login sonrası ana sayfaya yönlendir
       window.location.href = "/";
     } catch (err) {

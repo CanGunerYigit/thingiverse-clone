@@ -17,9 +17,11 @@ namespace thingiverse_backend.Controllers
             _itemRepository = itemRepository;
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id:int}")]
         public async Task<IActionResult> GetItemById(int id)
         {
+            if (id <= 0) 
+                return BadRequest("Geçersiz item ID");
             var item = await _itemRepository.GetItemByIdAsync(id);
             if (item == null)
                 return NotFound();
@@ -27,14 +29,17 @@ namespace thingiverse_backend.Controllers
             return Ok(item);
         }
 
+
         [HttpGet("search/{query}")]
         public async Task<IActionResult> SearchItemsByName(string query)
         {
+            if (string.IsNullOrWhiteSpace(query))
+                return BadRequest("Arama sorgusu boş olamaz");
             var items = await _itemRepository.SearchItemsByNameAsync(query);
             return Ok(items);
         }
 
-        [HttpGet("{id}/with-images")]
+        [HttpGet("{id:int}/with-images")]
         public async Task<IActionResult> GetItemWithImages(int id)
         {
             var result = await _itemRepository.GetItemWithImagesAsync(id);
@@ -44,9 +49,12 @@ namespace thingiverse_backend.Controllers
             return Ok(result);
         }
 
-        [HttpGet("image/{thingId}/{imageId}")]
+
+        [HttpGet("image/{thingId:int}/{imageId:int}")]
         public async Task<IActionResult> GetThingiverseImage(int thingId, int imageId)
         {
+            if (thingId <= 0 || imageId <= 0)
+                return BadRequest("Geçersiz ID");
             var (stream, contentType, statusCode, errorMessage) = await _itemRepository.GetThingiverseImageAsync(thingId, imageId);
             if (stream == null)
                 return StatusCode(statusCode, errorMessage);
@@ -58,6 +66,8 @@ namespace thingiverse_backend.Controllers
         [Authorize]
         public async Task<IActionResult> CreateItem([FromForm] CreateItemDto dto)
         {
+            if (dto == null || string.IsNullOrWhiteSpace(dto.Name))
+                return BadRequest("Geçersiz item verisi");
             var userName = User.FindFirstValue(ClaimTypes.Name) ?? User.Identity?.Name ?? "Anonymous";
 
             var newItem = await _itemRepository.CreateItemAsync(dto, userName);
@@ -65,7 +75,7 @@ namespace thingiverse_backend.Controllers
             return Ok(newItem);
         }
 
-        [HttpGet("image/{imageId}")]
+        [HttpGet("image/{imageId:int}")]
         public async Task<IActionResult> GetImage(int imageId)
         {
             var imageData = await _itemRepository.GetItemImageDataAsync(imageId);

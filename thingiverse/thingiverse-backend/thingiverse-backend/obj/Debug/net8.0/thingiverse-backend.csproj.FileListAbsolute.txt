@@ -159,3 +159,4 @@ C:\Users\TR\Desktop\thingiverse\thingiverse-backend\thingiverse-backend\obj\Debu
 C:\Users\TR\Desktop\thingiverse\thingiverse-backend\thingiverse-backend\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
 C:\Users\TR\Desktop\thingiverse\thingiverse-backend\thingiverse-backend\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
 C:\Users\TR\Desktop\thingiverse\thingiverse-backend\thingiverse-backend\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\TR\Desktop\thingiverse\thingiverse-backend\thingiverse-backend\bin\Debug\net8.0\Dapper.dll

@@ -8,7 +8,6 @@ import {
 
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import SortBar from "./pages/MainPage";
 import ItemDetail from "./pages/ItemDetailPage";
 import UserDetail from "./pages/UserDetailPage";
 import RegisterPage from "./pages/RegisterPage";
@@ -18,44 +17,44 @@ import MakeItem from "./pages/MakeItemPage";
 import MakeDetail from "./pages/MakeDetailPage";
 import MainPage from "./pages/MainPage";
 
-
 function LayoutWithNavbar() {
   const location = useLocation();
   const hideNavbarRoutes = ["/signup", "/login"];
   const [username, setUsername] = useState(null);
 
-
   const shouldShowNavbar = !hideNavbarRoutes.includes(location.pathname);
 
   return (
-    <>
+    <div className="w-full min-h-screen flex flex-col bg-white">
+      {/* Navbar */}
       {shouldShowNavbar && (
-        <div style={{ backgroundColor: "#2b52fe" }}>
+        <div className="w-full bg-[#2b52fe]">
           <Navbar username={username} setUsername={setUsername} />
         </div>
       )}
 
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <Hero />
-              <MainPage />
-            </>
-          }
-        />
-        <Route path="/item/:id" element={<ItemDetail />} />
-        <Route path="/user/:id" element={<UserDetail />} />
-        <Route path="/signup" element={<RegisterPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/create-item" element={<CreateItem />} />
-        
-        
-        <Route path="/make-item/:id" element={<MakeItem />} />
-        <Route path="/makes/:makeId" element={<MakeDetail />} />
-      </Routes>
-    </>
+      {/* Sayfa içerikleri */}
+      <div className="flex-1 w-full">
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <Hero />
+                <MainPage />
+              </>
+            }
+          />
+          <Route path="/item/:id" element={<ItemDetail />} />
+          <Route path="/user/:id" element={<UserDetail />} />
+          <Route path="/signup" element={<RegisterPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/create-item" element={<CreateItem />} />
+          <Route path="/make-item/:id" element={<MakeItem />} />
+          <Route path="/makes/:makeId" element={<MakeDetail />} />
+        </Routes>
+      </div>
+    </div>
   );
 }
 

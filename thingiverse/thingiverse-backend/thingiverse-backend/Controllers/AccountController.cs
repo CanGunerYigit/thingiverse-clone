@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Thingiverse.Application.Contracts.DTO.Account;
@@ -33,6 +34,7 @@ namespace thingiverse_backend.Controllers
         }
 
         [HttpPost("login")]
+        [EnableRateLimiting("fixed")] //brute force için rate limit
         public async Task<IActionResult> Login([FromBody] LoginDto loginDto)
         {
             if (!ModelState.IsValid)
@@ -51,7 +53,7 @@ namespace thingiverse_backend.Controllers
 
         public async Task<IActionResult> UpdateProfile([FromForm] UpdateProfileDto dto)
         {
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier); // JWT veya Identity'den alabilirsin (sub claim vs.)
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier); // userid al
 
             if (string.IsNullOrEmpty(userId))
                 return Unauthorized(new { message = "Kullanıcı girişi gerekli" });

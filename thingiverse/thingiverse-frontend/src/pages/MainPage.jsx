@@ -222,7 +222,7 @@ export default function MainPage() {
   const totalPages = Math.ceil(items.length / itemsPerPage);
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col w-full">
       <SortBar active={active} setActive={setActive} timeRange={timeRange} setTimeRange={setTimeRange} />
       <ItemsGrid
         items={paginatedItems}

@@ -1,50 +1,178 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Thingiverse.Infrastructure.Persistence.Identity;
+﻿using Dapper;
 using Thingiverse.Application.Interfaces;
 using Thingiverse.Domain.Models;
+using System.Data;
+
 namespace Thingiverse.Infrastructure.Repositories
 {
     public class PopularRepository : IPopularRepository
     {
+        private readonly IDbConnection _connection;
 
-        private readonly ApplicationDbContext _dbContext;
-
-        public PopularRepository(ApplicationDbContext dbContext)
+        public PopularRepository(IDbConnection connection)
         {
-            _dbContext = dbContext;
+            _connection = connection;
         }
+
         public async Task<List<Item>> GetNewestItemsAsync()
         {
-            return await _dbContext.Items
-                .Where(p => p.CreatedAt != null)
-                .Include(i => i.Comments)
-                .OrderByDescending(p => p.CreatedAt)
-                .ToListAsync();
+            var sql = @"
+                SELECT i.*, 
+                       c.Id AS CommentId, 
+                       c.Message AS Message, 
+                       c.CreatedAt AS CommentCreatedAt, 
+                       c.UserName AS CommentUserName, 
+                       c.AppUserId AS AppUserId, 
+                       c.ItemId
+                FROM Items i
+                LEFT JOIN Comments c ON i.Id = c.ItemId
+                WHERE i.CreatedAt IS NOT NULL
+                ORDER BY i.CreatedAt DESC";
+
+            var itemDict = new Dictionary<int, Item>();
+
+            var result = await _connection.QueryAsync<Item, Comment, Item>(
+                sql,
+                (item, comment) =>
+                {
+                    if (!itemDict.TryGetValue(item.Id, out var currentItem))
+                    {
+                        currentItem = item;
+                        currentItem.Comments = new List<Comment>();
+                        itemDict.Add(currentItem.Id, currentItem);
+                    }
+
+                    if (comment != null && comment.Id != 0)
+                        currentItem.Comments.Add(comment);
+
+                    return currentItem;
+                },
+                splitOn: "CommentId"
+            );
+
+            return itemDict.Values.ToList();
         }
 
         public async Task<List<Item>> GetPopular10MonthsAsync()
         {
             var tenMonthsAgo = DateTime.UtcNow.AddMonths(-10);
-            return await _dbContext.Items
-                .Where(p => p.CreatedAt >= tenMonthsAgo)
-                .OrderByDescending(p => p.Likes)
-                .ToListAsync();
+
+            var sql = @"
+                SELECT i.*, 
+                       c.Id AS CommentId, 
+                       c.Message AS Message, 
+                       c.CreatedAt AS CommentCreatedAt, 
+                       c.UserName AS CommentUserName, 
+                       c.AppUserId AS AppUserId, 
+                       c.ItemId
+                FROM Items i
+                LEFT JOIN Comments c ON i.Id = c.ItemId
+                WHERE i.CreatedAt >= @TenMonthsAgo
+                ORDER BY i.Likes DESC";
+
+            var itemDict = new Dictionary<int, Item>();
+
+            var result = await _connection.QueryAsync<Item, Comment, Item>(
+                sql,
+                (item, comment) =>
+                {
+                    if (!itemDict.TryGetValue(item.Id, out var currentItem))
+                    {
+                        currentItem = item;
+                        currentItem.Comments = new List<Comment>();
+                        itemDict.Add(currentItem.Id, currentItem);
+                    }
+
+                    if (comment != null && comment.Id != 0)
+                        currentItem.Comments.Add(comment);
+
+                    return currentItem;
+                },
+                new { TenMonthsAgo = tenMonthsAgo },
+                splitOn: "CommentId"
+            );
+
+            return itemDict.Values.ToList();
         }
 
         public async Task<List<Item>> GetPopular3YearsAsync()
         {
             var threeYearsAgo = DateTime.UtcNow.AddYears(-3);
-            return await _dbContext.Items
-                .Where(p => p.CreatedAt >= threeYearsAgo)
-                .OrderByDescending(p => p.Likes)
-                .ToListAsync();
+
+            var sql = @"
+                SELECT i.*, 
+                       c.Id AS CommentId, 
+                       c.Message AS Message, 
+                       c.CreatedAt AS CommentCreatedAt, 
+                       c.UserName AS CommentUserName, 
+                       c.AppUserId AS AppUserId, 
+                       c.ItemId
+                FROM Items i
+                LEFT JOIN Comments c ON i.Id = c.ItemId
+                WHERE i.CreatedAt >= @ThreeYearsAgo
+                ORDER BY i.Likes DESC";
+
+            var itemDict = new Dictionary<int, Item>();
+
+            var result = await _connection.QueryAsync<Item, Comment, Item>(
+                sql,
+                (item, comment) =>
+                {
+                    if (!itemDict.TryGetValue(item.Id, out var currentItem))
+                    {
+                        currentItem = item;
+                        currentItem.Comments = new List<Comment>();
+                        itemDict.Add(currentItem.Id, currentItem);
+                    }
+
+                    if (comment != null && comment.Id != 0)
+                        currentItem.Comments.Add(comment);
+
+                    return currentItem;
+                },
+                new { ThreeYearsAgo = threeYearsAgo },
+                splitOn: "CommentId"
+            );
+
+            return itemDict.Values.ToList();
         }
+
         public async Task<List<Item>> GetPopularAllTimeAsync()
         {
-            return await _dbContext.Items
-                .Include(i => i.Comments)
-                .OrderByDescending(p => p.Likes)
-                .ToListAsync();
+            var sql = @"
+                SELECT i.*, 
+                       c.Id AS CommentId, 
+                       c.Message AS Message, 
+                       c.CreatedAt AS CommentCreatedAt, 
+                       c.UserName AS CommentUserName, 
+                       c.AppUserId AS AppUserId, 
+                       c.ItemId
+                FROM Items i
+                LEFT JOIN Comments c ON i.Id = c.ItemId
+                ORDER BY i.Likes DESC";
+
+            var itemDict = new Dictionary<int, Item>();
+
+            var result = await _connection.QueryAsync<Item, Comment, Item>(
+                sql,
+                (item, comment) =>
+                {
+                    if (!itemDict.TryGetValue(item.Id, out var currentItem))
+                    {
+                        currentItem = item;
+                        currentItem.Comments = new List<Comment>();
+                        itemDict.Add(currentItem.Id, currentItem);
+                    }
+
+                    if (comment != null && comment.Id != 0)
+                        currentItem.Comments.Add(comment);
+
+                    return currentItem;
+                },
+                splitOn: "CommentId"
+            );
+
+            return itemDict.Values.ToList();
         }
     }
 }

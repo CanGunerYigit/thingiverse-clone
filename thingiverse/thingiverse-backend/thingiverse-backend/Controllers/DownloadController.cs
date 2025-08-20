@@ -16,7 +16,7 @@ namespace thingiverse_backend.Controllers
             
             _downloadService = downloadService;
         }
-        [HttpGet("{thingId}/images")]
+        [HttpGet("{thingId:int}/images")]
         public async Task<IActionResult> GetThingImages(int thingId)
         {
             var images = await _downloadService.GetThingImagesAsync(thingId);
@@ -29,6 +29,8 @@ namespace thingiverse_backend.Controllers
         [HttpPost("zip")]
         public async Task<IActionResult> CreateZip([FromBody] ThingIdRequest req)
         {
+            if (req == null || req.ThingId <= 0)
+                return BadRequest("Geçersiz ThingId");
             try
             {
                 var zipFile = await _downloadService.CreateThingZipAsync(req.ThingId);

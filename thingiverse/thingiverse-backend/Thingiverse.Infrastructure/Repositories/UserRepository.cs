@@ -1,73 +1,57 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Thingiverse.Infrastructure.Persistence.Identity;
+﻿using Dapper;
+using System.Data;
 using Thingiverse.Application.Interfaces;
+
 namespace Thingiverse.Infrastructure.Repositories
 {
     public class UserRepository : IUserRepository
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IDbConnection _connection;
 
-        public UserRepository(ApplicationDbContext context)
+        public UserRepository(IDbConnection connection)
         {
-            _context = context;
+            _connection = connection;
         }
+
         public async Task<object?> GetUserByIdAsync(string id)
         {
-            return await _context.Users
-                .Where(u => u.Id == id)
-                .Select(u => new
-                {
-                    u.Id,
-                    u.UserName,
-                    u.Email,
-                     u.ProfileImageUrl
-                })
-                .FirstOrDefaultAsync<object>();
+            var sql = @"
+                SELECT Id, UserName, Email, ProfileImageUrl
+                FROM AspNetUsers
+                WHERE Id = @Id";
+
+            return await _connection.QueryFirstOrDefaultAsync(sql, new { Id = id });
         }
+
         public async Task<List<object>> GetUserCommentsAsync(string id)
         {
-            var userExists = await _context.Users.AnyAsync(u => u.Id == id);
-            if (!userExists)
-            {
-                return new List<object>();
-            }
+            // kullanıcı kontrolü
+            var userExists = await _connection.QueryFirstOrDefaultAsync<int>(
+                "SELECT COUNT(1) FROM AspNetUsers WHERE Id = @Id",
+                new { Id = id });
 
-            return await _context.Comments
-                .Where(c => c.AppUserId == id)
-                .Select(c => new
-                {
-                    c.Id,
-                    c.Message,
-                    c.CreatedAt,
-                    c.ItemId
-                })
-                .ToListAsync<object>();
+            if (userExists == 0)
+                return new List<object>();
+
+            var sql = @"
+                SELECT Id, Message, CreatedAt, ItemId
+                FROM Comments
+                WHERE AppUserId = @Id";
+
+            var comments = await _connection.QueryAsync(sql, new { Id = id });
+            return comments.ToList<object>();
         }
 
         public async Task<List<object>> SearchUsersAsync(string query, string? currentUserId)
         {
-            var usersQuery = _context.Users.AsQueryable();
+            var sql = @"
+                SELECT Id, UserName, Email
+                FROM AspNetUsers
+                WHERE (@CurrentUserId IS NULL OR Id != @CurrentUserId)
+                  AND (@Query IS NULL OR LOWER(UserName) LIKE '%' + LOWER(@Query) + '%')";
 
-            if (!string.IsNullOrEmpty(currentUserId))
-            {
-                usersQuery = usersQuery.Where(u => u.Id != currentUserId);
-            }
-
-            if (!string.IsNullOrWhiteSpace(query))
-            {
-                var lowerQuery = query.ToLower();
-
-                usersQuery = usersQuery.Where(u => u.UserName.ToLower().Contains(lowerQuery));
-            }
-
-            return await usersQuery
-                .Select(u => new
-                {
-                    u.Id,
-                    u.UserName,
-                    u.Email
-                })
-                .ToListAsync<object>();
+            var users = await _connection.QueryAsync(sql, new { CurrentUserId = currentUserId, Query = query });
+            return users.ToList<object>();
         }
     }
 }

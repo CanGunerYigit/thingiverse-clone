@@ -21,10 +21,12 @@ namespace thingiverse_backend.Controllers
             _likeService = likeService;
         }
 
-        [HttpPost("toggle/{itemId}")]
+        [HttpPost("toggle/{itemId:int}")]
         [Authorize]
         public async Task<IActionResult> ToggleLike(int itemId)
         {
+            if (itemId <= 0)
+                return BadRequest("Geçersiz item ID");
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             if (userId == null) return Unauthorized();
 
@@ -39,6 +41,8 @@ namespace thingiverse_backend.Controllers
         [HttpGet("user/{userId}")]
         public async Task<IActionResult> GetLikesByUser(string userId)
         {
+            if (string.IsNullOrWhiteSpace(userId))
+                return BadRequest("Geçersiz kullanıcı ID");
             var likes = await _likeService.GetLikesByUserAsync(userId);
 
             var result = likes.Select(l => new
@@ -52,7 +56,7 @@ namespace thingiverse_backend.Controllers
                 }
             }).ToList();
 
-            // Boş liste de result tipine uygun
+            
             return Ok(result);
         }
 

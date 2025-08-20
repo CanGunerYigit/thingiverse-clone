@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "wIB+bn+iAkA=",
+  "dgSpecHash": "qIekI8WhTl8=",
   "success": true,
   "projectFilePath": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\thingiverse-backend\\thingiverse-backend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\TR\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\TR\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
+    "C:\\Users\\TR\\.nuget\\packages\\dapper\\2.1.66\\dapper.2.1.66.nupkg.sha512",
     "C:\\Users\\TR\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\TR\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.3.0\\microsoft.aspnetcore.authentication.abstractions.2.3.0.nupkg.sha512",
     "C:\\Users\\TR\\.nuget\\packages\\microsoft.aspnetcore.authentication.core\\2.3.0\\microsoft.aspnetcore.authentication.core.2.3.0.nupkg.sha512",

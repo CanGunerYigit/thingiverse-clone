@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Thingiverse.Application.Interfaces;
+
 namespace thingiverse_backend.Controllers
 {
     [Route("api/[controller]")]
@@ -16,8 +17,21 @@ namespace thingiverse_backend.Controllers
         [HttpGet]
         public async Task<IActionResult> GetNewestItem()
         {
-            var items = await _newRepository.GetNewestItemsAsync();
-            return Ok(items);
+            try
+            {
+                var items = await _newRepository.GetNewestItemsAsync();
+
+                // liste boşmu 
+                if (items == null || !items.Any())
+                    return NotFound("Yeni ürün bulunamadı.");
+
+                return Ok(items);
+            }
+            catch (Exception ex)
+            {
+                // hata logla
+                return StatusCode(500, $"Sunucu hatası: {ex.Message}");
+            }
         }
     }
 }

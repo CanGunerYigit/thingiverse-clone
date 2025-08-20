@@ -54,7 +54,7 @@ namespace Thingiverse.Infrastructure.Repositories
 
             var newUser = new NewUserDto
             {
-                Id = user.Id,
+                id = user.Id,
 
                 UserName = user.UserName,
                 Email = user.Email,
@@ -109,7 +109,7 @@ namespace Thingiverse.Infrastructure.Repositories
 
             if (dto.ProfileImage != null)
             {
-                // örnek: wwwroot/images içine kaydet
+                // wwwroot/images içine kaydet
                 var fileName = $"{Guid.NewGuid()}_{dto.ProfileImage.FileName}";
                 var filePath = Path.Combine("wwwroot/images", fileName);
 
@@ -122,7 +122,7 @@ namespace Thingiverse.Infrastructure.Repositories
             }
 
             var result = await _userManager.UpdateAsync(user);
-            if (!result.Succeeded)
+            if (!result.Succeeded) //hata aldıysa
                 return (false, "Profil güncellenemedi", null);
 
             return (true, "Profil güncellendi", new

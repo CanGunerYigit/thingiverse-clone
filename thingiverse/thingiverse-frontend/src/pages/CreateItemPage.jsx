@@ -75,6 +75,7 @@ export default function CreateItem() {
       console.log("Başarılı:", res.data);
       setSuccess(true);
 
+      // form reset
       setName("");
       setDescription("");
       setThumbnailFile(null);
@@ -134,7 +135,8 @@ export default function CreateItem() {
             accept="image/*"
             onChange={handleThumbnailChange}
             required
-            className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+            className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 
+                       file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
           />
           {thumbnailPreview && (
             <div className="mt-2">
@@ -146,15 +148,15 @@ export default function CreateItem() {
         {/* Preview Image Upload */}
         <div>
           <label htmlFor="previewImage" className="block text-sm font-medium text-gray-700 mb-1">
-            Önizleme Resmi*
+            Önizleme Resmi
           </label>
           <input
             id="previewImage"
             type="file"
             accept="image/*"
             onChange={handlePreviewImageChange}
-            required
-            className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+            className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 
+                       file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
           />
           {previewImagePreview && (
             <div className="mt-2">
@@ -174,7 +176,8 @@ export default function CreateItem() {
             accept="image/*"
             multiple
             onChange={handleImagesChange}
-            className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+            className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 
+                       file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
           />
           {imagePreviews.length > 0 && (
             <div className="mt-2 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">

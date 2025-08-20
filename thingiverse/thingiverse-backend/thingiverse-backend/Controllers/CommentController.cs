@@ -41,7 +41,7 @@ namespace thingiverse_backend.Controllers
 
         }
 
-        [HttpGet("item/{itemId}")]
+        [HttpGet("item/{itemId:int}")] //sadece int değerler
         public async Task<IActionResult> GetCommentsByItem(int itemId)
         {
             var comments = await _commentRepository.GetCommentsByItemAsync(itemId);

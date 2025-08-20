@@ -8,17 +8,22 @@ export default function InputField({
   onChange,
   required = false,
   placeholder,
-  rows
+  rows,
+  accept, // file input için
 }) {
   const commonProps = {
     id,
-    value,
     onChange,
     required,
     placeholder,
     className:
       "w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500",
   };
+
+  // file input için value prop kaldırıyoruz
+  if (type !== "file") {
+    commonProps.value = value;
+  }
 
   return (
     <div>
@@ -29,8 +34,11 @@ export default function InputField({
         {label}
         {required && "*"}
       </label>
+
       {type === "textarea" ? (
         <textarea {...commonProps} rows={rows || 4} />
+      ) : type === "file" ? (
+        <input {...commonProps} type="file" accept={accept} />
       ) : (
         <input {...commonProps} type={type} />
       )}

@@ -15,7 +15,6 @@
         public Item Item { get; set; }
         public List<string> ImagePaths { get; set; }
 
-        // İstersen paylaşan kullanıcı bilgisi
         public string UserId { get; set; }
         public AppUser User { get; set; }
     }

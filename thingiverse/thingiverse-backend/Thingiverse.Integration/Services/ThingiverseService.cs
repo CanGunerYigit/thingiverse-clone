@@ -8,7 +8,6 @@ using Thingiverse.Domain.Models;
 using System.Text.Json.Serialization;
 using Thingiverse.Application.Contracts.DTO;
 using Thingiverse.Application.Contracts.DTO.Popular;
-using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using System.Net.Http.Headers;
 using Thingiverse.Application.Contracts.Repository;
@@ -118,7 +117,7 @@ public class ThingiverseService
             }
 
             await _thingRepository.SaveChangesAsync();
-            await Task.Delay(1000); // rate limit
+            await Task.Delay(1000); // rate limit koy yoksa hata verecek çekmeyecek
         }
     }
 
