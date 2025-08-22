@@ -9,13 +9,15 @@ export default function DownloadMakeButtons({ token, item }) {
     setLoading(true);
     try {
       const res = await fetch("https://localhost:7267/api/Download/zip", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          ...(token ? { Authorization: `Bearer ${token}` } : {}),
-        },
-        body: JSON.stringify({ thingId: item.id }), // backend'in beklediği item id
-      });
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    Accept: "application/zip",
+    ...(token ? { Authorization: `Bearer ${token}` } : {}),
+  },
+  body: JSON.stringify({ thingId: item.id }),
+});
+
 
       if (!res.ok) {
         const text = await res.text();
@@ -25,8 +27,8 @@ export default function DownloadMakeButtons({ token, item }) {
         return;
       }
 
-      // Dosya adı header
-      const contentDisposition = res.headers.get("Content-Disposition");
+      // dosya adı
+    const contentDisposition = res.headers.get("content-disposition");
       let fileName = `${item.name || "thing"}_${item.id}.zip`;
       if (contentDisposition) {
         const match = contentDisposition.match(/filename="?(.+)"?/);

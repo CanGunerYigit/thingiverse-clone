@@ -7,6 +7,7 @@ import Tabs from "../components/ItemDetail/Tabs";
 import DescriptionTab from "../components/ItemDetail/DescriptionTab";
 import CommentsTab from "../components/ItemDetail/CommentsTab";
 import MakesTab from "../components/ItemDetail/MakesTab";
+import ShareButton from "../components/ItemDetail/ShareButton";
 
 export default function ItemDetail() {
   const { id } = useParams();
@@ -113,8 +114,16 @@ setAllImages([...urls, ...backendImageUrls]);  };
 
 
       </div>
-
+    <div className="flex space-x-3">
       <DownloadMakeButtons token={token} item={item} />
+      <ShareButton />
+    </div>
+
+      
+
+
+  
+
       <Tabs activeTab={activeTab} setActiveTab={setActiveTab} />
 
       <div className="mb-6">

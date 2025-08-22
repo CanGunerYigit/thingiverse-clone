@@ -3,112 +3,60 @@
   "WorkspaceRootPath": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1793EFEE-FA81-4DA8-87EC-4346433D1F94}|thingiverse-backend\\thingiverse-backend.csproj|c:\\users\\tr\\desktop\\thingiverse\\thingiverse-backend\\thingiverse-backend\\controllers\\likecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1793EFEE-FA81-4DA8-87EC-4346433D1F94}|thingiverse-backend\\thingiverse-backend.csproj|solutionrelative:thingiverse-backend\\controllers\\likecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1793EFEE-FA81-4DA8-87EC-4346433D1F94}|thingiverse-backend\\thingiverse-backend.csproj|c:\\users\\tr\\desktop\\thingiverse\\thingiverse-backend\\thingiverse-backend\\controllers\\makescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1793EFEE-FA81-4DA8-87EC-4346433D1F94}|thingiverse-backend\\thingiverse-backend.csproj|solutionrelative:thingiverse-backend\\controllers\\makescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{280B3B9C-D0D7-4B00-AEC8-E6C1855B610E}|Thingiverse.Infrastructure\\Thingiverse.Infrastructure.csproj|c:\\users\\tr\\desktop\\thingiverse\\thingiverse-backend\\thingiverse.infrastructure\\repositories\\likerepository .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{280B3B9C-D0D7-4B00-AEC8-E6C1855B610E}|Thingiverse.Infrastructure\\Thingiverse.Infrastructure.csproj|solutionrelative:thingiverse.infrastructure\\repositories\\likerepository .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E535384F-B6C5-486A-9896-14E12F69F400}|Thingiverse.Application\\Thingiverse.Application.csproj|c:\\users\\tr\\desktop\\thingiverse\\thingiverse-backend\\thingiverse.application\\abstractions\\interfaces\\ilikerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E535384F-B6C5-486A-9896-14E12F69F400}|Thingiverse.Application\\Thingiverse.Application.csproj|solutionrelative:thingiverse.application\\abstractions\\interfaces\\ilikerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E535384F-B6C5-486A-9896-14E12F69F400}|Thingiverse.Application\\Thingiverse.Application.csproj|c:\\users\\tr\\desktop\\thingiverse\\thingiverse-backend\\thingiverse.application\\services\\likeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E535384F-B6C5-486A-9896-14E12F69F400}|Thingiverse.Application\\Thingiverse.Application.csproj|solutionrelative:thingiverse.application\\services\\likeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E535384F-B6C5-486A-9896-14E12F69F400}|Thingiverse.Application\\Thingiverse.Application.csproj|c:\\users\\tr\\desktop\\thingiverse\\thingiverse-backend\\thingiverse.application\\abstractions\\interfaces\\ilikeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E535384F-B6C5-486A-9896-14E12F69F400}|Thingiverse.Application\\Thingiverse.Application.csproj|solutionrelative:thingiverse.application\\abstractions\\interfaces\\ilikeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E535384F-B6C5-486A-9896-14E12F69F400}|Thingiverse.Application\\Thingiverse.Application.csproj|c:\\users\\tr\\desktop\\thingiverse\\thingiverse-backend\\thingiverse.application\\contracts\\dto\\createitemdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E535384F-B6C5-486A-9896-14E12F69F400}|Thingiverse.Application\\Thingiverse.Application.csproj|solutionrelative:thingiverse.application\\contracts\\dto\\createitemdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B3A94816-97AE-4B36-8DAD-790B6F8672F4}|Thingiverse.Integration\\Thingiverse.Integration.csproj|c:\\users\\tr\\desktop\\thingiverse\\thingiverse-backend\\thingiverse.integration\\services\\downloadservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B3A94816-97AE-4B36-8DAD-790B6F8672F4}|Thingiverse.Integration\\Thingiverse.Integration.csproj|solutionrelative:thingiverse.integration\\services\\downloadservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E535384F-B6C5-486A-9896-14E12F69F400}|Thingiverse.Application\\Thingiverse.Application.csproj|c:\\users\\tr\\desktop\\thingiverse\\thingiverse-backend\\thingiverse.application\\abstractions\\interfaces\\idownloadservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E535384F-B6C5-486A-9896-14E12F69F400}|Thingiverse.Application\\Thingiverse.Application.csproj|solutionrelative:thingiverse.application\\abstractions\\interfaces\\idownloadservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1793EFEE-FA81-4DA8-87EC-4346433D1F94}|thingiverse-backend\\thingiverse-backend.csproj|c:\\users\\tr\\desktop\\thingiverse\\thingiverse-backend\\thingiverse-backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1793EFEE-FA81-4DA8-87EC-4346433D1F94}|thingiverse-backend\\thingiverse-backend.csproj|solutionrelative:thingiverse-backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E535384F-B6C5-486A-9896-14E12F69F400}|Thingiverse.Application\\Thingiverse.Application.csproj|c:\\users\\tr\\desktop\\thingiverse\\thingiverse-backend\\thingiverse.application\\contracts\\dto\\account\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E535384F-B6C5-486A-9896-14E12F69F400}|Thingiverse.Application\\Thingiverse.Application.csproj|solutionrelative:thingiverse.application\\contracts\\dto\\account\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1793EFEE-FA81-4DA8-87EC-4346433D1F94}|thingiverse-backend\\thingiverse-backend.csproj|c:\\users\\tr\\desktop\\thingiverse\\thingiverse-backend\\thingiverse-backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1793EFEE-FA81-4DA8-87EC-4346433D1F94}|thingiverse-backend\\thingiverse-backend.csproj|solutionrelative:thingiverse-backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{280B3B9C-D0D7-4B00-AEC8-E6C1855B610E}|Thingiverse.Infrastructure\\Thingiverse.Infrastructure.csproj|c:\\users\\tr\\desktop\\thingiverse\\thingiverse-backend\\thingiverse.infrastructure\\repositories\\makerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{280B3B9C-D0D7-4B00-AEC8-E6C1855B610E}|Thingiverse.Infrastructure\\Thingiverse.Infrastructure.csproj|solutionrelative:thingiverse.infrastructure\\repositories\\makerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E535384F-B6C5-486A-9896-14E12F69F400}|Thingiverse.Application\\Thingiverse.Application.csproj|c:\\users\\tr\\desktop\\thingiverse\\thingiverse-backend\\thingiverse.application\\contracts\\dto\\popular\\popularapithingdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E535384F-B6C5-486A-9896-14E12F69F400}|Thingiverse.Application\\Thingiverse.Application.csproj|solutionrelative:thingiverse.application\\contracts\\dto\\popular\\popularapithingdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E535384F-B6C5-486A-9896-14E12F69F400}|Thingiverse.Application\\Thingiverse.Application.csproj|c:\\users\\tr\\desktop\\thingiverse\\thingiverse-backend\\thingiverse.application\\contracts\\dto\\popular\\popularapicreatordto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E535384F-B6C5-486A-9896-14E12F69F400}|Thingiverse.Application\\Thingiverse.Application.csproj|solutionrelative:thingiverse.application\\contracts\\dto\\popular\\popularapicreatordto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E535384F-B6C5-486A-9896-14E12F69F400}|Thingiverse.Application\\Thingiverse.Application.csproj|c:\\users\\tr\\desktop\\thingiverse\\thingiverse-backend\\thingiverse.application\\contracts\\dto\\itemimagedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E535384F-B6C5-486A-9896-14E12F69F400}|Thingiverse.Application\\Thingiverse.Application.csproj|solutionrelative:thingiverse.application\\contracts\\dto\\itemimagedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E535384F-B6C5-486A-9896-14E12F69F400}|Thingiverse.Application\\Thingiverse.Application.csproj|c:\\users\\tr\\desktop\\thingiverse\\thingiverse-backend\\thingiverse.application\\contracts\\dto\\itemwithimagesdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E535384F-B6C5-486A-9896-14E12F69F400}|Thingiverse.Application\\Thingiverse.Application.csproj|solutionrelative:thingiverse.application\\contracts\\dto\\itemwithimagesdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E535384F-B6C5-486A-9896-14E12F69F400}|Thingiverse.Application\\Thingiverse.Application.csproj|c:\\users\\tr\\desktop\\thingiverse\\thingiverse-backend\\thingiverse.application\\contracts\\dto\\thingdetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E535384F-B6C5-486A-9896-14E12F69F400}|Thingiverse.Application\\Thingiverse.Application.csproj|solutionrelative:thingiverse.application\\contracts\\dto\\thingdetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E535384F-B6C5-486A-9896-14E12F69F400}|Thingiverse.Application\\Thingiverse.Application.csproj|c:\\users\\tr\\desktop\\thingiverse\\thingiverse-backend\\thingiverse.application\\contracts\\dto\\thingidrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E535384F-B6C5-486A-9896-14E12F69F400}|Thingiverse.Application\\Thingiverse.Application.csproj|solutionrelative:thingiverse.application\\contracts\\dto\\thingidrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E535384F-B6C5-486A-9896-14E12F69F400}|Thingiverse.Application\\Thingiverse.Application.csproj|c:\\users\\tr\\desktop\\thingiverse\\thingiverse-backend\\thingiverse.application\\contracts\\dto\\thingiverseimagedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E535384F-B6C5-486A-9896-14E12F69F400}|Thingiverse.Application\\Thingiverse.Application.csproj|solutionrelative:thingiverse.application\\contracts\\dto\\thingiverseimagedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E535384F-B6C5-486A-9896-14E12F69F400}|Thingiverse.Application\\Thingiverse.Application.csproj|c:\\users\\tr\\desktop\\thingiverse\\thingiverse-backend\\thingiverse.application\\contracts\\dto\\thingmakedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E535384F-B6C5-486A-9896-14E12F69F400}|Thingiverse.Application\\Thingiverse.Application.csproj|solutionrelative:thingiverse.application\\contracts\\dto\\thingmakedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E535384F-B6C5-486A-9896-14E12F69F400}|Thingiverse.Application\\Thingiverse.Application.csproj|c:\\users\\tr\\desktop\\thingiverse\\thingiverse-backend\\thingiverse.application\\contracts\\dto\\zipresultdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E535384F-B6C5-486A-9896-14E12F69F400}|Thingiverse.Application\\Thingiverse.Application.csproj|solutionrelative:thingiverse.application\\contracts\\dto\\zipresultdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E535384F-B6C5-486A-9896-14E12F69F400}|Thingiverse.Application\\Thingiverse.Application.csproj|c:\\users\\tr\\desktop\\thingiverse\\thingiverse-backend\\thingiverse.application\\contracts\\dto\\comment\\commentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E535384F-B6C5-486A-9896-14E12F69F400}|Thingiverse.Application\\Thingiverse.Application.csproj|solutionrelative:thingiverse.application\\contracts\\dto\\comment\\commentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E535384F-B6C5-486A-9896-14E12F69F400}|Thingiverse.Application\\Thingiverse.Application.csproj|c:\\users\\tr\\desktop\\thingiverse\\thingiverse-backend\\thingiverse.application\\contracts\\dto\\account\\updateprofiledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E535384F-B6C5-486A-9896-14E12F69F400}|Thingiverse.Application\\Thingiverse.Application.csproj|solutionrelative:thingiverse.application\\contracts\\dto\\account\\updateprofiledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E535384F-B6C5-486A-9896-14E12F69F400}|Thingiverse.Application\\Thingiverse.Application.csproj|c:\\users\\tr\\desktop\\thingiverse\\thingiverse-backend\\thingiverse.application\\contracts\\dto\\account\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E535384F-B6C5-486A-9896-14E12F69F400}|Thingiverse.Application\\Thingiverse.Application.csproj|solutionrelative:thingiverse.application\\contracts\\dto\\account\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E535384F-B6C5-486A-9896-14E12F69F400}|Thingiverse.Application\\Thingiverse.Application.csproj|c:\\users\\tr\\desktop\\thingiverse\\thingiverse-backend\\thingiverse.application\\contracts\\dto\\account\\changepassworddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E535384F-B6C5-486A-9896-14E12F69F400}|Thingiverse.Application\\Thingiverse.Application.csproj|solutionrelative:thingiverse.application\\contracts\\dto\\account\\changepassworddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{E535384F-B6C5-486A-9896-14E12F69F400}|Thingiverse.Application\\Thingiverse.Application.csproj|c:\\users\\tr\\desktop\\thingiverse\\thingiverse-backend\\thingiverse.application\\contracts\\dto\\account\\newuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E535384F-B6C5-486A-9896-14E12F69F400}|Thingiverse.Application\\Thingiverse.Application.csproj|solutionrelative:thingiverse.application\\contracts\\dto\\account\\newuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{1793EFEE-FA81-4DA8-87EC-4346433D1F94}|thingiverse-backend\\thingiverse-backend.csproj|c:\\users\\tr\\desktop\\thingiverse\\thingiverse-backend\\thingiverse-backend\\controllers\\makescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1793EFEE-FA81-4DA8-87EC-4346433D1F94}|thingiverse-backend\\thingiverse-backend.csproj|solutionrelative:thingiverse-backend\\controllers\\makescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1793EFEE-FA81-4DA8-87EC-4346433D1F94}|thingiverse-backend\\thingiverse-backend.csproj|c:\\users\\tr\\desktop\\thingiverse\\thingiverse-backend\\thingiverse-backend\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1793EFEE-FA81-4DA8-87EC-4346433D1F94}|thingiverse-backend\\thingiverse-backend.csproj|solutionrelative:thingiverse-backend\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1793EFEE-FA81-4DA8-87EC-4346433D1F94}|thingiverse-backend\\thingiverse-backend.csproj|c:\\users\\tr\\desktop\\thingiverse\\thingiverse-backend\\thingiverse-backend\\controllers\\popularcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1793EFEE-FA81-4DA8-87EC-4346433D1F94}|thingiverse-backend\\thingiverse-backend.csproj|solutionrelative:thingiverse-backend\\controllers\\popularcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1793EFEE-FA81-4DA8-87EC-4346433D1F94}|thingiverse-backend\\thingiverse-backend.csproj|c:\\users\\tr\\desktop\\thingiverse\\thingiverse-backend\\thingiverse-backend\\controllers\\newestcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1793EFEE-FA81-4DA8-87EC-4346433D1F94}|thingiverse-backend\\thingiverse-backend.csproj|solutionrelative:thingiverse-backend\\controllers\\newestcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{280B3B9C-D0D7-4B00-AEC8-E6C1855B610E}|Thingiverse.Infrastructure\\Thingiverse.Infrastructure.csproj|c:\\users\\tr\\desktop\\thingiverse\\thingiverse-backend\\thingiverse.infrastructure\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{280B3B9C-D0D7-4B00-AEC8-E6C1855B610E}|Thingiverse.Infrastructure\\Thingiverse.Infrastructure.csproj|solutionrelative:thingiverse.infrastructure\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{280B3B9C-D0D7-4B00-AEC8-E6C1855B610E}|Thingiverse.Infrastructure\\Thingiverse.Infrastructure.csproj|c:\\users\\tr\\desktop\\thingiverse\\thingiverse-backend\\thingiverse.infrastructure\\repositories\\thingrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{280B3B9C-D0D7-4B00-AEC8-E6C1855B610E}|Thingiverse.Infrastructure\\Thingiverse.Infrastructure.csproj|solutionrelative:thingiverse.infrastructure\\repositories\\thingrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{280B3B9C-D0D7-4B00-AEC8-E6C1855B610E}|Thingiverse.Infrastructure\\Thingiverse.Infrastructure.csproj|c:\\users\\tr\\desktop\\thingiverse\\thingiverse-backend\\thingiverse.infrastructure\\repositories\\itemrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{280B3B9C-D0D7-4B00-AEC8-E6C1855B610E}|Thingiverse.Infrastructure\\Thingiverse.Infrastructure.csproj|solutionrelative:thingiverse.infrastructure\\repositories\\itemrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B3A94816-97AE-4B36-8DAD-790B6F8672F4}|Thingiverse.Integration\\Thingiverse.Integration.csproj|c:\\users\\tr\\desktop\\thingiverse\\thingiverse-backend\\thingiverse.integration\\services\\downloadservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B3A94816-97AE-4B36-8DAD-790B6F8672F4}|Thingiverse.Integration\\Thingiverse.Integration.csproj|solutionrelative:thingiverse.integration\\services\\downloadservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B3A94816-97AE-4B36-8DAD-790B6F8672F4}|Thingiverse.Integration\\Thingiverse.Integration.csproj|c:\\users\\tr\\desktop\\thingiverse\\thingiverse-backend\\thingiverse.integration\\services\\thingiverseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B3A94816-97AE-4B36-8DAD-790B6F8672F4}|Thingiverse.Integration\\Thingiverse.Integration.csproj|solutionrelative:thingiverse.integration\\services\\thingiverseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1793EFEE-FA81-4DA8-87EC-4346433D1F94}|thingiverse-backend\\thingiverse-backend.csproj|c:\\users\\tr\\desktop\\thingiverse\\thingiverse-backend\\thingiverse-backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{1793EFEE-FA81-4DA8-87EC-4346433D1F94}|thingiverse-backend\\thingiverse-backend.csproj|solutionrelative:thingiverse-backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E535384F-B6C5-486A-9896-14E12F69F400}|Thingiverse.Application\\Thingiverse.Application.csproj|c:\\users\\tr\\desktop\\thingiverse\\thingiverse-backend\\thingiverse.application\\contracts\\config\\apisettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E535384F-B6C5-486A-9896-14E12F69F400}|Thingiverse.Application\\Thingiverse.Application.csproj|solutionrelative:thingiverse.application\\contracts\\config\\apisettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -118,216 +66,128 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ILikeService.cs",
-              "DocumentMoniker": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\Thingiverse.Application\\Abstractions\\Interfaces\\ILikeService.cs",
-              "RelativeDocumentMoniker": "Thingiverse.Application\\Abstractions\\Interfaces\\ILikeService.cs",
-              "ToolTip": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\Thingiverse.Application\\Abstractions\\Interfaces\\ILikeService.cs",
-              "RelativeToolTip": "Thingiverse.Application\\Abstractions\\Interfaces\\ILikeService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-20T16:06:11.419Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "LikeService.cs",
-              "DocumentMoniker": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\Thingiverse.Application\\Services\\LikeService.cs",
-              "RelativeDocumentMoniker": "Thingiverse.Application\\Services\\LikeService.cs",
-              "ToolTip": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\Thingiverse.Application\\Services\\LikeService.cs",
-              "RelativeToolTip": "Thingiverse.Application\\Services\\LikeService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAABAAAA",
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\thingiverse-backend\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "thingiverse-backend\\Controllers\\UserController.cs",
+              "ToolTip": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\thingiverse-backend\\Controllers\\UserController.cs",
+              "RelativeToolTip": "thingiverse-backend\\Controllers\\UserController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACEAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-20T16:03:12.833Z",
+              "WhenOpened": "2025-08-22T12:31:01.306Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ILikeRepository.cs",
-              "DocumentMoniker": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\Thingiverse.Application\\Abstractions\\Interfaces\\ILikeRepository.cs",
-              "RelativeDocumentMoniker": "Thingiverse.Application\\Abstractions\\Interfaces\\ILikeRepository.cs",
-              "ToolTip": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\Thingiverse.Application\\Abstractions\\Interfaces\\ILikeRepository.cs",
-              "RelativeToolTip": "Thingiverse.Application\\Abstractions\\Interfaces\\ILikeRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
+              "DocumentIndex": 5,
+              "Title": "PopularController.cs",
+              "DocumentMoniker": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\thingiverse-backend\\Controllers\\PopularController.cs",
+              "RelativeDocumentMoniker": "thingiverse-backend\\Controllers\\PopularController.cs",
+              "ToolTip": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\thingiverse-backend\\Controllers\\PopularController.cs",
+              "RelativeToolTip": "thingiverse-backend\\Controllers\\PopularController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-20T16:02:26.094Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "LikeRepository .cs",
-              "DocumentMoniker": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\Thingiverse.Infrastructure\\Repositories\\LikeRepository .cs",
-              "RelativeDocumentMoniker": "Thingiverse.Infrastructure\\Repositories\\LikeRepository .cs",
-              "ToolTip": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\Thingiverse.Infrastructure\\Repositories\\LikeRepository .cs",
-              "RelativeToolTip": "Thingiverse.Infrastructure\\Repositories\\LikeRepository .cs",
-              "ViewState": "AQIAADUAAAAAAAAAAAAwwBUAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-20T15:58:21.164Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "ThingDetailDto.cs",
-              "DocumentMoniker": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\Thingiverse.Application\\Contracts\\DTO\\ThingDetailDto.cs",
-              "RelativeDocumentMoniker": "Thingiverse.Application\\Contracts\\DTO\\ThingDetailDto.cs",
-              "ToolTip": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\Thingiverse.Application\\Contracts\\DTO\\ThingDetailDto.cs",
-              "RelativeToolTip": "Thingiverse.Application\\Contracts\\DTO\\ThingDetailDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-19T18:36:44.048Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "PopularApiCreatorDto.cs",
-              "DocumentMoniker": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\Thingiverse.Application\\Contracts\\DTO\\Popular\\PopularApiCreatorDto.cs",
-              "RelativeDocumentMoniker": "Thingiverse.Application\\Contracts\\DTO\\Popular\\PopularApiCreatorDto.cs",
-              "ToolTip": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\Thingiverse.Application\\Contracts\\DTO\\Popular\\PopularApiCreatorDto.cs",
-              "RelativeToolTip": "Thingiverse.Application\\Contracts\\DTO\\Popular\\PopularApiCreatorDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-19T18:42:06.102Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "DownloadService.cs",
-              "DocumentMoniker": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\Thingiverse.Integration\\Services\\DownloadService.cs",
-              "RelativeDocumentMoniker": "Thingiverse.Integration\\Services\\DownloadService.cs",
-              "ToolTip": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\Thingiverse.Integration\\Services\\DownloadService.cs",
-              "RelativeToolTip": "Thingiverse.Integration\\Services\\DownloadService.cs",
-              "ViewState": "AQIAABMAAAAAAAAAAAAgwC0AAABbAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-19T18:29:59.269Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\thingiverse-backend\\Program.cs",
-              "RelativeDocumentMoniker": "thingiverse-backend\\Program.cs",
-              "ToolTip": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\thingiverse-backend\\Program.cs",
-              "RelativeToolTip": "thingiverse-backend\\Program.cs",
-              "ViewState": "AQIAAJAAAAAAAAAAAAAAAK4AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-20T11:56:39.766Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "LikeController.cs",
-              "DocumentMoniker": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\thingiverse-backend\\Controllers\\LikeController.cs",
-              "RelativeDocumentMoniker": "thingiverse-backend\\Controllers\\LikeController.cs",
-              "ToolTip": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\thingiverse-backend\\Controllers\\LikeController.cs",
-              "RelativeToolTip": "thingiverse-backend\\Controllers\\LikeController.cs",
-              "ViewState": "AQIAADIAAAAAAAAAAAAwwEsAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-19T19:36:09.508Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MakesController.cs",
-              "DocumentMoniker": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\thingiverse-backend\\Controllers\\MakesController.cs",
-              "RelativeDocumentMoniker": "thingiverse-backend\\Controllers\\MakesController.cs",
-              "ToolTip": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\thingiverse-backend\\Controllers\\MakesController.cs",
-              "RelativeToolTip": "thingiverse-backend\\Controllers\\MakesController.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAAB8AAABWAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-19T19:37:11.4Z",
+              "WhenOpened": "2025-08-22T12:30:59.16Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "CreateItemDto.cs",
-              "DocumentMoniker": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\Thingiverse.Application\\Contracts\\DTO\\CreateItemDto.cs",
-              "RelativeDocumentMoniker": "Thingiverse.Application\\Contracts\\DTO\\CreateItemDto.cs",
-              "ToolTip": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\Thingiverse.Application\\Contracts\\DTO\\CreateItemDto.cs",
-              "RelativeToolTip": "Thingiverse.Application\\Contracts\\DTO\\CreateItemDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAzAAAA",
+              "Title": "NewestController.cs",
+              "DocumentMoniker": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\thingiverse-backend\\Controllers\\NewestController.cs",
+              "RelativeDocumentMoniker": "thingiverse-backend\\Controllers\\NewestController.cs",
+              "ToolTip": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\thingiverse-backend\\Controllers\\NewestController.cs",
+              "RelativeToolTip": "thingiverse-backend\\Controllers\\NewestController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-19T18:36:39.991Z",
+              "WhenOpened": "2025-08-22T12:30:53.898Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "ItemWithImagesDto.cs",
-              "DocumentMoniker": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\Thingiverse.Application\\Contracts\\DTO\\ItemWithImagesDto.cs",
-              "RelativeDocumentMoniker": "Thingiverse.Application\\Contracts\\DTO\\ItemWithImagesDto.cs",
-              "ToolTip": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\Thingiverse.Application\\Contracts\\DTO\\ItemWithImagesDto.cs",
-              "RelativeToolTip": "Thingiverse.Application\\Contracts\\DTO\\ItemWithImagesDto.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAABoAAAA1AAAA",
+              "DocumentIndex": 7,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\Thingiverse.Infrastructure\\Repositories\\UserRepository.cs",
+              "RelativeDocumentMoniker": "Thingiverse.Infrastructure\\Repositories\\UserRepository.cs",
+              "ToolTip": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\Thingiverse.Infrastructure\\Repositories\\UserRepository.cs",
+              "RelativeToolTip": "Thingiverse.Infrastructure\\Repositories\\UserRepository.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAB8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-19T18:36:29.154Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "ItemImageDto.cs",
-              "DocumentMoniker": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\Thingiverse.Application\\Contracts\\DTO\\ItemImageDto.cs",
-              "RelativeDocumentMoniker": "Thingiverse.Application\\Contracts\\DTO\\ItemImageDto.cs",
-              "ToolTip": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\Thingiverse.Application\\Contracts\\DTO\\ItemImageDto.cs",
-              "RelativeToolTip": "Thingiverse.Application\\Contracts\\DTO\\ItemImageDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-19T18:36:38.17Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "MakeRepository.cs",
-              "DocumentMoniker": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\Thingiverse.Infrastructure\\Repositories\\MakeRepository.cs",
-              "RelativeDocumentMoniker": "Thingiverse.Infrastructure\\Repositories\\MakeRepository.cs",
-              "ToolTip": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\Thingiverse.Infrastructure\\Repositories\\MakeRepository.cs",
-              "RelativeToolTip": "Thingiverse.Infrastructure\\Repositories\\MakeRepository.cs",
-              "ViewState": "AQIAADAAAAAAAAAAAAAowEgAAAAaAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-20T11:48:21.388Z",
+              "WhenOpened": "2025-08-22T12:30:07.057Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "IDownloadService.cs",
-              "DocumentMoniker": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\Thingiverse.Application\\Abstractions\\Interfaces\\IDownloadService.cs",
-              "RelativeDocumentMoniker": "Thingiverse.Application\\Abstractions\\Interfaces\\IDownloadService.cs",
-              "ToolTip": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\Thingiverse.Application\\Abstractions\\Interfaces\\IDownloadService.cs",
-              "RelativeToolTip": "Thingiverse.Application\\Abstractions\\Interfaces\\IDownloadService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Title": "ThingRepository.cs",
+              "DocumentMoniker": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\Thingiverse.Infrastructure\\Repositories\\ThingRepository.cs",
+              "RelativeDocumentMoniker": "Thingiverse.Infrastructure\\Repositories\\ThingRepository.cs",
+              "ToolTip": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\Thingiverse.Infrastructure\\Repositories\\ThingRepository.cs",
+              "RelativeToolTip": "Thingiverse.Infrastructure\\Repositories\\ThingRepository.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAgwBoAAABNAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-20T12:07:38.724Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "PopularApiThingDto.cs",
-              "DocumentMoniker": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\Thingiverse.Application\\Contracts\\DTO\\Popular\\PopularApiThingDto.cs",
-              "RelativeDocumentMoniker": "Thingiverse.Application\\Contracts\\DTO\\Popular\\PopularApiThingDto.cs",
-              "ToolTip": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\Thingiverse.Application\\Contracts\\DTO\\Popular\\PopularApiThingDto.cs",
-              "RelativeToolTip": "Thingiverse.Application\\Contracts\\DTO\\Popular\\PopularApiThingDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-19T18:41:52.19Z",
+              "WhenOpened": "2025-08-22T12:30:01.155Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
+              "Title": "ItemRepository.cs",
+              "DocumentMoniker": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\Thingiverse.Infrastructure\\Repositories\\ItemRepository.cs",
+              "RelativeDocumentMoniker": "Thingiverse.Infrastructure\\Repositories\\ItemRepository.cs",
+              "ToolTip": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\Thingiverse.Infrastructure\\Repositories\\ItemRepository.cs",
+              "RelativeToolTip": "Thingiverse.Infrastructure\\Repositories\\ItemRepository.cs",
+              "ViewState": "AQIAALEAAAAAAAAAAAAmwIcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-22T12:28:10.289Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\thingiverse-backend\\Program.cs",
+              "RelativeDocumentMoniker": "thingiverse-backend\\Program.cs",
+              "ToolTip": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\thingiverse-backend\\Program.cs",
+              "RelativeToolTip": "thingiverse-backend\\Program.cs",
+              "ViewState": "AQIAAJYAAAAAAAAAAAAEwLoAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-22T12:25:15.259Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MakesController.cs",
+              "DocumentMoniker": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\thingiverse-backend\\Controllers\\MakesController.cs",
+              "RelativeDocumentMoniker": "thingiverse-backend\\Controllers\\MakesController.cs",
+              "ToolTip": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\thingiverse-backend\\Controllers\\MakesController.cs",
+              "RelativeToolTip": "thingiverse-backend\\Controllers\\MakesController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-22T12:31:25.176Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "NewUserDto.cs",
+              "DocumentMoniker": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\Thingiverse.Application\\Contracts\\DTO\\Account\\NewUserDto.cs",
+              "RelativeDocumentMoniker": "Thingiverse.Application\\Contracts\\DTO\\Account\\NewUserDto.cs",
+              "ToolTip": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\Thingiverse.Application\\Contracts\\DTO\\Account\\NewUserDto.cs",
+              "RelativeToolTip": "Thingiverse.Application\\Contracts\\DTO\\Account\\NewUserDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAA2AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-22T12:31:44.195Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "LoginDto.cs",
               "DocumentMoniker": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\Thingiverse.Application\\Contracts\\DTO\\Account\\LoginDto.cs",
               "RelativeDocumentMoniker": "Thingiverse.Application\\Contracts\\DTO\\Account\\LoginDto.cs",
@@ -335,128 +195,60 @@
               "RelativeToolTip": "Thingiverse.Application\\Contracts\\DTO\\Account\\LoginDto.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-19T18:45:07.274Z",
+              "WhenOpened": "2025-08-22T12:31:50.571Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "ThingIdRequest.cs",
-              "DocumentMoniker": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\Thingiverse.Application\\Contracts\\DTO\\ThingIdRequest.cs",
-              "RelativeDocumentMoniker": "Thingiverse.Application\\Contracts\\DTO\\ThingIdRequest.cs",
-              "ToolTip": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\Thingiverse.Application\\Contracts\\DTO\\ThingIdRequest.cs",
-              "RelativeToolTip": "Thingiverse.Application\\Contracts\\DTO\\ThingIdRequest.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-19T18:41:35.861Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "ThingiverseImageDto.cs",
-              "DocumentMoniker": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\Thingiverse.Application\\Contracts\\DTO\\ThingiverseImageDto.cs",
-              "RelativeDocumentMoniker": "Thingiverse.Application\\Contracts\\DTO\\ThingiverseImageDto.cs",
-              "ToolTip": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\Thingiverse.Application\\Contracts\\DTO\\ThingiverseImageDto.cs",
-              "RelativeToolTip": "Thingiverse.Application\\Contracts\\DTO\\ThingiverseImageDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAjAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-19T18:32:08.104Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "ThingMakeDto.cs",
-              "DocumentMoniker": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\Thingiverse.Application\\Contracts\\DTO\\ThingMakeDto.cs",
-              "RelativeDocumentMoniker": "Thingiverse.Application\\Contracts\\DTO\\ThingMakeDto.cs",
-              "ToolTip": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\Thingiverse.Application\\Contracts\\DTO\\ThingMakeDto.cs",
-              "RelativeToolTip": "Thingiverse.Application\\Contracts\\DTO\\ThingMakeDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-19T18:36:25.056Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "ZipResultDto.cs",
-              "DocumentMoniker": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\Thingiverse.Application\\Contracts\\DTO\\ZipResultDto.cs",
-              "RelativeDocumentMoniker": "Thingiverse.Application\\Contracts\\DTO\\ZipResultDto.cs",
-              "ToolTip": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\Thingiverse.Application\\Contracts\\DTO\\ZipResultDto.cs",
-              "RelativeToolTip": "Thingiverse.Application\\Contracts\\DTO\\ZipResultDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-19T18:41:42.154Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "CommentDto.cs",
-              "DocumentMoniker": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\Thingiverse.Application\\Contracts\\DTO\\Comment\\CommentDto.cs",
-              "RelativeDocumentMoniker": "Thingiverse.Application\\Contracts\\DTO\\Comment\\CommentDto.cs",
-              "ToolTip": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\Thingiverse.Application\\Contracts\\DTO\\Comment\\CommentDto.cs",
-              "RelativeToolTip": "Thingiverse.Application\\Contracts\\DTO\\Comment\\CommentDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-19T18:45:14.457Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "UpdateProfileDto.cs",
-              "DocumentMoniker": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\Thingiverse.Application\\Contracts\\DTO\\Account\\UpdateProfileDto.cs",
-              "RelativeDocumentMoniker": "Thingiverse.Application\\Contracts\\DTO\\Account\\UpdateProfileDto.cs",
-              "ToolTip": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\Thingiverse.Application\\Contracts\\DTO\\Account\\UpdateProfileDto.cs",
-              "RelativeToolTip": "Thingiverse.Application\\Contracts\\DTO\\Account\\UpdateProfileDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAEAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-19T18:43:01.178Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "RegisterDto.cs",
-              "DocumentMoniker": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\Thingiverse.Application\\Contracts\\DTO\\Account\\RegisterDto.cs",
-              "RelativeDocumentMoniker": "Thingiverse.Application\\Contracts\\DTO\\Account\\RegisterDto.cs",
-              "ToolTip": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\Thingiverse.Application\\Contracts\\DTO\\Account\\RegisterDto.cs",
-              "RelativeToolTip": "Thingiverse.Application\\Contracts\\DTO\\Account\\RegisterDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-19T18:45:11.42Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "ChangePasswordDto.cs",
-              "DocumentMoniker": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\Thingiverse.Application\\Contracts\\DTO\\Account\\ChangePasswordDto.cs",
-              "RelativeDocumentMoniker": "Thingiverse.Application\\Contracts\\DTO\\Account\\ChangePasswordDto.cs",
-              "ToolTip": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\Thingiverse.Application\\Contracts\\DTO\\Account\\ChangePasswordDto.cs",
-              "RelativeToolTip": "Thingiverse.Application\\Contracts\\DTO\\Account\\ChangePasswordDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-19T18:45:08.314Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "NewUserDto.cs",
-              "DocumentMoniker": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\Thingiverse.Application\\Contracts\\DTO\\Account\\NewUserDto.cs",
-              "RelativeDocumentMoniker": "Thingiverse.Application\\Contracts\\DTO\\Account\\NewUserDto.cs",
-              "ToolTip": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\Thingiverse.Application\\Contracts\\DTO\\Account\\NewUserDto.cs",
-              "RelativeToolTip": "Thingiverse.Application\\Contracts\\DTO\\Account\\NewUserDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAApAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-19T18:44:02.527Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 11,
               "Title": "ThingiverseService.cs",
               "DocumentMoniker": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\Thingiverse.Integration\\Services\\ThingiverseService.cs",
               "RelativeDocumentMoniker": "Thingiverse.Integration\\Services\\ThingiverseService.cs",
               "ToolTip": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\Thingiverse.Integration\\Services\\ThingiverseService.cs",
               "RelativeToolTip": "Thingiverse.Integration\\Services\\ThingiverseService.cs",
-              "ViewState": "AQIAADsAAAAAAAAAAAAwwDAAAABeAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-19T18:32:04.533Z"
+              "WhenOpened": "2025-08-22T12:24:08.575Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ApiSettings.cs",
+              "DocumentMoniker": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\Thingiverse.Application\\Contracts\\Config\\ApiSettings.cs",
+              "RelativeDocumentMoniker": "Thingiverse.Application\\Contracts\\Config\\ApiSettings.cs",
+              "ToolTip": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\Thingiverse.Application\\Contracts\\Config\\ApiSettings.cs",
+              "RelativeToolTip": "Thingiverse.Application\\Contracts\\Config\\ApiSettings.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-22T12:15:58.78Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\thingiverse-backend\\appsettings.json",
+              "RelativeDocumentMoniker": "thingiverse-backend\\appsettings.json",
+              "ToolTip": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\thingiverse-backend\\appsettings.json",
+              "RelativeToolTip": "thingiverse-backend\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-08-22T12:10:48.332Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "DownloadService.cs",
+              "DocumentMoniker": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\Thingiverse.Integration\\Services\\DownloadService.cs",
+              "RelativeDocumentMoniker": "Thingiverse.Integration\\Services\\DownloadService.cs",
+              "ToolTip": "C:\\Users\\TR\\Desktop\\thingiverse\\thingiverse-backend\\Thingiverse.Integration\\Services\\DownloadService.cs",
+              "RelativeToolTip": "Thingiverse.Integration\\Services\\DownloadService.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAAAAoAAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-22T12:10:35.725Z",
+              "EditorCaption": ""
             }
           ]
         }

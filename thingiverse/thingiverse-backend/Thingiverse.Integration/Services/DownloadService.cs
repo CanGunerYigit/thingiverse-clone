@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.Options;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
@@ -7,17 +8,20 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using Thingiverse.Application.Abstractions.Interfaces;
 using Thingiverse.Application.Contracts.DTO;
+using Thingiverse.Application.Options;
 
 namespace Thingiverse.Integration.Services
 {
     public class DownloadService : IDownloadService
     {
         private readonly HttpClient _httpClient;
-        private readonly string _accessToken = "bb5c9468817bf1fb6718ac8ccf64a86f"; 
+        private readonly string _accessToken;
 
-        public DownloadService(HttpClient httpClient)
+        public DownloadService(HttpClient httpClient, IOptions<ThingiverseOptions> options)
         {
             _httpClient = httpClient;
+            _accessToken = options.Value.Token;
+
         }
 
         public async Task<List<string>> GetThingImagesAsync(int thingId)

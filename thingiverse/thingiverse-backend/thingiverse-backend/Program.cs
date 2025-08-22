@@ -22,6 +22,9 @@ using System.Data;
 using System.Text.Json;
 using System.Threading.RateLimiting;
 using Microsoft.AspNetCore.RateLimiting;
+using Thingiverse.Application.Options;
+using Thingiverse.Application.Contracts.Config;
+using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
@@ -29,6 +32,9 @@ var configuration = builder.Configuration;
 // --- DbContext (Identity için) ---
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+
+
+
 
 // --- Identity ---
 builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
@@ -85,11 +91,20 @@ builder.Services.AddHttpClient("Thingiverse", client =>
     client.DefaultRequestHeaders.Add("Accept", "application/json");
 });
 
-builder.Services.AddScoped<ThingiverseService>();
-builder.Services.AddScoped<IDownloadService, DownloadService>(provider =>
+builder.Services.AddScoped<ThingiverseService>(provider =>
 {
     var client = provider.GetRequiredService<IHttpClientFactory>().CreateClient("Thingiverse");
-    return new DownloadService(client);
+    var repo = provider.GetRequiredService<IThingRepository>();
+    var options = provider.GetRequiredService<IOptions<ThingiverseOptions>>();
+    var apiOptions = provider.GetRequiredService<IOptions<ApiSettings>>();
+    return new ThingiverseService(client, repo, options,apiOptions);
+});
+
+builder.Services.AddScoped<IDownloadService>(provider =>
+{
+    var client = provider.GetRequiredService<IHttpClientFactory>().CreateClient("Thingiverse");
+    var options = provider.GetRequiredService<IOptions<ThingiverseOptions>>();
+    return new DownloadService(client, options);
 });
 
 // --- Dapper için IDbConnection ---
@@ -175,6 +190,9 @@ builder.Services.AddRateLimiter(options =>  //rate limit dakikada 5 istek
 
     options.RejectionStatusCode = 429; // çok request
 });
+builder.Services.Configure<ThingiverseOptions>(
+    builder.Configuration.GetSection("Thingiverse"));
+
 
 var app = builder.Build();
 
